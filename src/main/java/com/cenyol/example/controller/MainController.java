@@ -22,11 +22,6 @@ public class MainController {
     @Autowired
     private UserRepo userRepository;
 
-    // 首页
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "index";
-    }
 
     // 用户管理
     @RequestMapping(value = "/users", method = RequestMethod.GET)
