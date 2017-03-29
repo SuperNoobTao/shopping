@@ -56,7 +56,7 @@
       <c:forEach items="${userList}" var="user">
         <tr>
           <td>${user.id}</td>
-          <td>${user.firstName} ${user.lastName}</td>
+          <td>${user.username}</td>
           <td>${user.password}</td>
           <td>
             <a href="/showUser/${user.id}" type="button" class="btn btn-sm btn-success">详情</a>

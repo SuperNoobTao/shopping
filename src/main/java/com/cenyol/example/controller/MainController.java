@@ -1,7 +1,7 @@
 package com.cenyol.example.controller;
 
 import com.cenyol.example.model.UserEntity;
-import com.cenyol.example.repository.UserRepository;
+import com.cenyol.example.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -21,7 +20,7 @@ public class MainController {
 
     // 自动装配
     @Autowired
-    private UserRepository userRepository;
+    private UserRepo userRepository;
 
     // 首页
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -78,17 +77,17 @@ public class MainController {
         modelMap.addAttribute("user", userEntity);
         return "updateUser";
     }
-    // 处理用户修改请求
-    @RequestMapping(value = "/updateUserPost", method = RequestMethod.POST)
-    public String updateUserPost(@ModelAttribute("user") UserEntity userEntity){
-        userRepository.updateUser(
-                userEntity.getFirstName(),
-                userEntity.getLastName(),
-                userEntity.getPassword(),
-                userEntity.getId()
-        );
-        return "redirect:/users";
-    }
+//    // 处理用户修改请求
+//    @RequestMapping(value = "/updateUserPost", method = RequestMethod.POST)
+//    public String updateUserPost(@ModelAttribute("user") UserEntity userEntity){
+//        userRepository.updateUser(
+//                userEntity.getFirstName(),
+//                userEntity.getLastName(),
+//                userEntity.getPassword(),
+//                userEntity.getId()
+//        );
+//        return "redirect:/users";
+//    }
 
     // 删除用户
     @RequestMapping(value = "/deleteUser/{userId}", method = RequestMethod.GET)
