@@ -17,7 +17,7 @@
         <a href="shoppingcart.html"><span>购物车</span></a>
         <a href="user.html"><span>个人信息</span></a>
         <div class="loginbtn">
-            <a href="##"><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
+            <a href="/login"><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
         </div>
         <div class="search">
             <form >
