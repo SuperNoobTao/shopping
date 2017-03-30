@@ -13,11 +13,11 @@
         <!--nav-->
         <header class="samebg">
             <div class="nav same clearfix">
-        <a href="index.jsp"><span>首页</span></a>
-        <a href="shoppingcart.jsp"><span>购物车</span></a>
-        <a href="user.jsp"><span>个人信息</span></a>
+        <a href="/"><span>首页</span></a>
+        <a href="/cart"><span>购物车</span></a>
+        <a href="/info"><span>个人信息</span></a>
         <div class="loginbtn">
-            <a href=""><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
+            <a href="##"><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
         </div>
         <div class="search">
             <form >
@@ -163,11 +163,11 @@
             <form class="shadeMain_left" action="/login" method="post">
                 <div class="shadeMain_input">
                     <span class="shadeMain_name"><label for="text">用户名：</label></span>
-                    <input id="text" class="shadeMain_text" type="text" value="" />
+                    <input id="text" name="username" class="shadeMain_text" type="text" value="" />
                 </div>
                 <div class="shadeMain_input">
                     <span class="shadeMain_name"><label for="pass">密码：</label></span>
-                    <input id="pass" class="shadeMain_text" type="password" value="" />
+                    <input id="pass" name="password"  class="shadeMain_text" type="password" value="" />
                 </div>
                 <div class="shadeMain_submit">
                     <input class="loginReg_login" type="submit" value="登录" />

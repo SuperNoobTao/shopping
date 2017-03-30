@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class FontCtr {
     // 用户登录
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap){
         // 返回pages目录下的userManage.jsp
         return "admin/login";

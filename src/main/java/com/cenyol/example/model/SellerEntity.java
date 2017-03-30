@@ -1,31 +1,20 @@
 package com.cenyol.example.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.swing.*;
+import javax.persistence.*;
 
 /**
- * Created by shentao on 2017/3/29.
+ * Created by shentao on 2017/3/30.
  */
+@Entity
+@Table(name = "seller", schema = "shopping", catalog = "")
 public class SellerEntity {
-
-    @Id
-    @Column(name = "sellerid", nullable = false, insertable = true, updatable = true)
     private int sellerid;
-
-    @Id
-    @Column(name = "myusername", nullable = false, insertable = true, updatable = true)
     private String myusername;
-
-    @Id
-    @Column(name = "mypassword", nullable = false, insertable = true, updatable = true)
     private String mypassword;
+    private Double earning;
 
     @Id
-    @Column(name = "earning", nullable = false, insertable = true, updatable = true)
-    private double earning;
-
-
+    @Column(name = "sellerid")
     public int getSellerid() {
         return sellerid;
     }
@@ -34,6 +23,8 @@ public class SellerEntity {
         this.sellerid = sellerid;
     }
 
+    @Basic
+    @Column(name = "myusername")
     public String getMyusername() {
         return myusername;
     }
@@ -42,6 +33,8 @@ public class SellerEntity {
         this.myusername = myusername;
     }
 
+    @Basic
+    @Column(name = "mypassword")
     public String getMypassword() {
         return mypassword;
     }
@@ -50,11 +43,37 @@ public class SellerEntity {
         this.mypassword = mypassword;
     }
 
-    public double getEarning() {
+    @Basic
+    @Column(name = "earning")
+    public Double getEarning() {
         return earning;
     }
 
-    public void setEarning(double earning) {
+    public void setEarning(Double earning) {
         this.earning = earning;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SellerEntity that = (SellerEntity) o;
+
+        if (sellerid != that.sellerid) return false;
+        if (myusername != null ? !myusername.equals(that.myusername) : that.myusername != null) return false;
+        if (mypassword != null ? !mypassword.equals(that.mypassword) : that.mypassword != null) return false;
+        if (earning != null ? !earning.equals(that.earning) : that.earning != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = sellerid;
+        result = 31 * result + (myusername != null ? myusername.hashCode() : 0);
+        result = 31 * result + (mypassword != null ? mypassword.hashCode() : 0);
+        result = 31 * result + (earning != null ? earning.hashCode() : 0);
+        return result;
     }
 }

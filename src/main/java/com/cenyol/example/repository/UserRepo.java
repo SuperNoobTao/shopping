@@ -25,8 +25,8 @@ public interface UserRepo extends JpaRepository<UserEntity, Integer> {
 //                           @Param("qId") Integer id);
 
 
-    @Query("select u.password from UserEntity u where s.username=:username")
-    public String usernameExsit(@Param("username")String username);
+    @Query("select u from UserEntity u where u.username=:username")
+    public UserEntity usernameExsit(@Param("username")String username);
 
 
 

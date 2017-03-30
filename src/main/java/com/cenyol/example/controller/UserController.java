@@ -1,10 +1,10 @@
 package com.cenyol.example.controller;
 
+import com.cenyol.example.Service.UserService;
 import com.cenyol.example.model.OrderEntity;
 import com.cenyol.example.model.UserEntity;
 import com.cenyol.example.repository.OrderRepo;
 import com.cenyol.example.repository.UserRepo;
-import com.cenyol.example.service.UserService;
 import com.cenyol.example.utils.StringUtil;
 import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,10 +106,10 @@ public class UserController {
 
     // 用户详细信息界面
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public String info(@PathVariable String id,ModelMap modelMap){
+    public String info(HttpSession httpSession,ModelMap modelMap){
+        UserEntity user = (UserEntity) httpSession.getAttribute("user");
 
-        UserEntity user = userRepository.findOne(Integer.valueOf(id));
-        List<OrderEntity> orderEntity = orderRepo.getOrderByU(Integer.parseInt(id));
+        List<OrderEntity> orderEntity = orderRepo.getOrderByU(user.getId());
         modelMap.addAttribute("userinfo",user);
         modelMap.addAttribute("order",orderEntity);
         return "user";
@@ -119,11 +119,11 @@ public class UserController {
     @RequestMapping(value = "login" ,method = RequestMethod.POST)
     public String login(String username,String password,HttpSession httpSession){
 
-        String result = userService.login(username,password);
-        if (result.equals(StringUtil.SUCCESS)) {
+        UserEntity user = userService.login(username,password);
+        if (user!=null) {
 
-            httpSession.setAttribute("manager", 1);
-            return "";
+            httpSession.setAttribute("user", user);
+            return "redirect:/";
         }
 return "";
     }
