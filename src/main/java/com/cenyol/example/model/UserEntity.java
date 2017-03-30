@@ -33,6 +33,10 @@ public class UserEntity {
     @Column(name = "money", nullable = true, insertable = true, updatable = true, length = 45)
     private double money;
 
+    @Basic
+    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 45)
+    private String email;
+
 
     public int getId() {
         return id;
@@ -83,7 +87,11 @@ public class UserEntity {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

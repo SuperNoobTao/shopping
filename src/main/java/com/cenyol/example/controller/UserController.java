@@ -1,7 +1,12 @@
 package com.cenyol.example.controller;
 
+import com.cenyol.example.model.OrderEntity;
 import com.cenyol.example.model.UserEntity;
+import com.cenyol.example.repository.OrderRepo;
 import com.cenyol.example.repository.UserRepo;
+import com.cenyol.example.service.UserService;
+import com.cenyol.example.utils.StringUtil;
+import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,18 +15,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
  * Created by sjj on 2015/10/24 0024.
  */
 @Controller
-public class MainController {
+public class UserController {
 
     // 自动装配
     @Autowired
     private UserRepo userRepository;
-
+    @Autowired
+    private OrderRepo orderRepo;
+    @Autowired
+    private UserService userService;
 
     // 用户管理
     @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -93,4 +102,30 @@ public class MainController {
         userRepository.flush();
         return "redirect:/users";
     }
+
+
+    // 用户详细信息界面
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public String info(@PathVariable String id,ModelMap modelMap){
+
+        UserEntity user = userRepository.findOne(Integer.valueOf(id));
+        List<OrderEntity> orderEntity = orderRepo.getOrderByU(Integer.parseInt(id));
+        modelMap.addAttribute("userinfo",user);
+        modelMap.addAttribute("order",orderEntity);
+        return "user";
+    }
+
+    //用户登陆，登陆成功则刷新页面(未完成，应该把user对象放进session中)
+    @RequestMapping(value = "login" ,method = RequestMethod.POST)
+    public String login(String username,String password,HttpSession httpSession){
+
+        String result = userService.login(username,password);
+        if (result.equals(StringUtil.SUCCESS)) {
+
+            httpSession.setAttribute("manager", 1);
+            return "";
+        }
+return "";
+    }
+
 }

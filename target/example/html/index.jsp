@@ -15,9 +15,9 @@
             <div class="nav same clearfix">
         <a href="index.jsp"><span>首页</span></a>
         <a href="shoppingcart.html"><span>购物车</span></a>
-        <a href="user.html"><span>个人信息</span></a>
+        <a href="user.jsp"><span>个人信息</span></a>
         <div class="loginbtn">
-            <a href="/login"><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
+            <a href=""><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
         </div>
         <div class="search">
             <form >
@@ -55,7 +55,7 @@
     <ul class="clearfix">
         <c:forEach items="${productList}" var="p1"  >
 
-        <a href="product.html">
+        <a href="/${p1.productid}">
 
             <li>
             <img src="${p1.imgurl}"  />
@@ -78,7 +78,7 @@
         <ul class="clearfix">
             <c:forEach items="${productList}" var="p2"  >
 
-                <a href="product.html">
+                <a href="product.jsp">
 
                     <li>
                         <img src="${p2.imgurl}"  />
@@ -101,7 +101,7 @@
         <ul class="clearfix">
             <c:forEach items="${productList}" var="p3"  >
 
-                <a href="product.html">
+                <a href="product.jsp">
 
                     <li>
                         <img src="${p3.imgurl}"  />

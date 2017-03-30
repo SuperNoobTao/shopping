@@ -1,6 +1,7 @@
 package com.cenyol.example.repository;
 
 import com.cenyol.example.model.UserEntity;
+import com.cenyol.example.utils.StringUtil;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -22,4 +23,12 @@ public interface UserRepo extends JpaRepository<UserEntity, Integer> {
 //                           @Param("qLastName") String qLastName,
 //                           @Param("qPassword") String password,
 //                           @Param("qId") Integer id);
+
+
+    @Query("select u.password from UserEntity u where s.username=:username")
+    public String usernameExsit(@Param("username")String username);
+
+
+
+
 }
