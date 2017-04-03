@@ -17,4 +17,8 @@ public interface ShoppingCartRepo extends JpaRepository<ShoppingCartEntity, Inte
 
     @Query("select s from ShoppingCartEntity s where s.userid=:userid")
     public List<ShoppingCartEntity> getCartByU(@Param("userid") int id);
+
+    @Query("select s from ShoppingCartEntity s where s.productid=:productid and s.userid=:userid")
+    public ShoppingCartEntity getInfoByPID(@Param("productid") int productid,
+                                           @Param("userid") int userid);
 }

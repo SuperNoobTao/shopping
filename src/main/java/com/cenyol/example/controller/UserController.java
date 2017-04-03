@@ -1,9 +1,13 @@
 package com.cenyol.example.controller;
 
 import com.cenyol.example.model.OrderEntity;
+import com.cenyol.example.model.ProductEntity;
+import com.cenyol.example.model.ShoppingCartEntity;
 import com.cenyol.example.model.UserEntity;
 import com.cenyol.example.repository.OrderRepo;
 import com.cenyol.example.repository.UserRepo;
+import com.cenyol.example.service.ProductService;
+import com.cenyol.example.service.ShoppingCartService;
 import com.cenyol.example.service.UserService;
 import com.cenyol.example.utils.StringUtil;
 import org.omg.CORBA.PRIVATE_MEMBER;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.persistence.AttributeOverride;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -31,6 +36,10 @@ public class UserController {
     private OrderRepo orderRepo;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
 
     // 用户管理
     @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -55,7 +64,7 @@ public class UserController {
     @RequestMapping(value = "/addUserPost", method = RequestMethod.POST)
     public String addUserPost(@ModelAttribute("user") UserEntity userEntity){
         // 向数据库添加一个用户
-        //userRepository.save(userEntity);
+        userRepository.save(userEntity);
 
         // 向数据库添加一个用户，并将内存中缓存区的数据刷新，立即写入数据库，之后才可以进行访问读取
         userRepository.saveAndFlush(userEntity);
@@ -126,6 +135,41 @@ public class UserController {
             return "";
         }
 return "";
+    }
+
+
+    //产品添加
+    @RequestMapping(value = "pro/add",method = RequestMethod.POST)
+    public String addProduct(@ModelAttribute("product") ProductEntity productEntity){
+        productService.add(productEntity);
+        return "";
+    }
+
+    //产品修改
+    @RequestMapping(value = "pro/update",method = RequestMethod.POST)
+    public String updateProduct(@ModelAttribute("product") ProductEntity productEntity){
+        productService.update(productEntity);
+        return "";
+    }
+
+    //产品删除
+    @RequestMapping(value = "del/{id}",method = RequestMethod.GET)
+    public String delProduct(@PathVariable String id){
+        productService.del(Integer.parseInt(id));
+        return "";
+    }
+
+
+    @RequestMapping(value = "cart/add",method = RequestMethod.POST)
+    public String addCart(@ModelAttribute("cart") ShoppingCartEntity shoppingCartEntity,HttpSession httpSession){
+        UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
+        int userid = userEntity.getId();
+        boolean flag = shoppingCartService.add(shoppingCartEntity,userid);
+        if (flag==true) {
+
+            return "";
+        }
+        return "";
     }
 
 }
