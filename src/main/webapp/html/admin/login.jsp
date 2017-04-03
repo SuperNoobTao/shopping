@@ -47,12 +47,12 @@
     <br>
     <br>
 
-    <form method="post" class="am-form">
-      <label for="email">邮箱:</label>
-      <input type="email" name="" id="email" value="">
+    <form action="/admin/login" method="post" class="am-form">
+      <label for="myusername">用户名:</label>
+      <input type="text" name="myusername" id="myusername" value="">
       <br>
       <label for="password">密码:</label>
-      <input type="password" name="" id="password" value="">
+      <input type="password" name="mypassword" id="password" value="">
       <br>
       <label for="remember-me">
         <input id="remember-me" type="checkbox">

@@ -12,9 +12,9 @@
 <!--nav-->
 <header class="samebg">
     <div class="nav same clearfix">
-        <a href="index.jsp"><span>首页</span></a>
-        <a href="shoppingcart.jsp"><span>购物车</span></a>
-        <a href="user.jsp"><span>个人信息</span></a>
+        <a href="/"><span>首页</span></a>
+        <a href="/cart"><span>购物车</span></a>
+        <a href="/info"><span>个人信息</span></a>
         <div class="loginbtn">
             <a href="##"><input id="loginbtn" class="btn" type="submit" value="欢迎" /></a>
         </div>
@@ -39,12 +39,13 @@
             </ul>
         </div>
         <div class="product-right">
+
             <h3>${product.productname}</h3>
             <dl><dt>${product.description}
                 </dd>
             </dl>
             <p>${product.price}</p>
-            <a href="order.html"><input class="buyatone"   type="button"  value="立即购买" /></a>
+            <a href="/order"><input class="buyatone"   type="button"  value="立即购买" /></a>
             <a href="shoppingcart.jsp"><input class="putincart" type="button" value="加入购物车" /></a>
         </div>
     </div>

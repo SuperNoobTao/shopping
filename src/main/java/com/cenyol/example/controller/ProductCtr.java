@@ -28,7 +28,7 @@ public class ProductCtr {
     private ContentRepo contentRepo;
 
 
-    // 用户管理
+    // 首页
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String users(ModelMap modelMap){
         // 热门销售
