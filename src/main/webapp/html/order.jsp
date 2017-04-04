@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <title>order</title>
     <link href="../css/style1.css"  rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
 <!--nav-->
@@ -29,6 +30,7 @@
 
 <!--确认订单信息-->
 <section class="orderlist">
+    <form>
     <div class="orderlistmian same">
         <h3>确认订单信息</h3>
         <table border="1px">
@@ -51,7 +53,7 @@
         </table>
         <div class="threebtns clearfix">
             <input type="button" value="修改信息"/>
-            <input class="buttomsec" type="submit" value="确认订单"/>
+            <input class="buttomsec" type="button" value="确认订单"/>
             <a href="product.jsp"><input class="buttomrthr" type="button" value="取消"/></a>
         </div>
     </div>
@@ -66,6 +68,27 @@
     </div>
 </footer>
 </body>
+<script>
+    $(".buttomsec").click(function () {
 
+        $.ajax({
+            type:"GET",
+            datatype:"json",
+            url:"/order/detail/add",
+            success:function (data) {
+                console.log(data);
+                if(data.code =="true"){
+                    alert("购买成功");
+                    window.location.href="/info";
+                }else if(data.code =="false"){
+                    alert("用户余额不足");
+                    window.location.href="/info";
+                }
+
+            }
+        })
+    })
+
+</script>
 
 </html>

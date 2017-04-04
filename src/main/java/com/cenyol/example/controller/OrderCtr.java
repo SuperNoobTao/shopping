@@ -4,6 +4,8 @@ import com.cenyol.example.model.OrderEntity;
 import com.cenyol.example.model.ProductEntity;
 import com.cenyol.example.model.UserEntity;
 import com.cenyol.example.repository.OrderRepo;
+
+import com.cenyol.example.repository.UserRepo;
 import com.cenyol.example.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,8 @@ public class OrderCtr {
 
     @Autowired
     OrderService orderService;
+    @Autowired
+    UserRepo userRepo;
 
     @RequestMapping(value = "/order",method = RequestMethod.POST)
     @ResponseBody
@@ -53,18 +57,24 @@ public class OrderCtr {
     }
 
     @RequestMapping(value = "/order/detail",method = RequestMethod.GET)
-    public String orderdetail(HttpSession httpSession){
-        HashMap<String,String>  map = new HashMap<String, String>();
-        OrderEntity orderEntity = (OrderEntity) httpSession.getAttribute("order");
+    public String orderdetail(){
         return "order";
     }
 
     @RequestMapping(value = "/order/detail/add",method = RequestMethod.GET)
-    public String orderdetailadd(HttpSession httpSession){
-       OrderEntity orderEntity = (OrderEntity) httpSession.getAttribute("order");
-       orderService.addOrder(orderEntity);
+    @ResponseBody
+    public HashMap<String, String>  orderdetailadd(HttpSession httpSession){
+        HashMap<String,String>  map = new HashMap<String, String>();
+        OrderEntity orderEntity = (OrderEntity) httpSession.getAttribute("order");
+        UserEntity user = userRepo.findOne(orderEntity.getUserid());
 
-        return "redirect:/info";
+        if (user.getMoney()<orderEntity.getOrderprice()) {
+            map.put("code","false");
+        }else {
+            orderService.addOrder(orderEntity);
+            map.put("code","true");
+        }
+        return map;
     }
 
 }

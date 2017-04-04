@@ -57,8 +57,8 @@
       <ul class="am-list admin-sidebar-list">
         <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
 
-        <li><a href="product.jsp"><span class="am-icon-table"></span> 表格</a></li>
-        <li><a href="productdetail.jsp"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
+        <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
+        <li><a href="/admin/pro"><span class="am-icon-table"></span> 商品管理</a></li>
         <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 
@@ -90,22 +90,23 @@
     </div>
 
     <hr>
-
+<form action="/admin/pro/add" method="post" enctype="multipart/form-data">
     <div class="am-tabs am-margin" data-am-tabs>
 
       <ul class="am-tabs-nav am-nav am-nav-tabs">
         <li class="am-active"><a href="#tab1">基本信息</a></li>
       </ul>
+<%---------------------------------------------------------------------------%>
 
       <div class="am-tabs-bd">
         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">所属类别</div>
             <div class="am-u-sm-8 am-u-md-10">
-              <select data-am-selected="{btnSize: 'sm'}">
-                <option value="option1">选项一...</option>
-                <option value="option2">选项二.....</option>
-                <option value="option3">选项三........</option>
+              <select data-am-selected="{btnSize: 'sm'}" name="type">
+                <option value="1">热门销售</option>
+                <option value="2">智能促销</option>
+                <option value="3">限时促销</option>
               </select>
             </div>
           </div>
@@ -113,68 +114,37 @@
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">显示状态</div>
             <div class="am-u-sm-8 am-u-md-10">
-              <div class="am-btn-group" data-am-button>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="radio" name="options" id="option1"> 正常
-                </label>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="radio" name="options" id="option2"> 待审核
-                </label>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="radio" name="options" id="option3"> 不显示
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="am-g am-margin-top">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">推荐类型</div>
-            <div class="am-u-sm-8 am-u-md-10">
-              <div class="am-btn-group" data-am-button>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="checkbox"> 允许评论
-                </label>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="checkbox"> 置顶
-                </label>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="checkbox"> 推荐
-                </label>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="checkbox"> 热门
-                </label>
-                <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="checkbox"> 轮播图
-                </label>
-              </div>
+              <td>
+                <img  id="imageimg" width="375px" height="250px" src="" style="width:375px;height: 250px; " />
+                <input id="image" name="image" type="file" accept="image/*" onChange="change(this,'imageimg')" />
+              </td>
             </div>
           </div>
 
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              发布日期
+              商品名称
             </div>
-            <div class="am-u-sm-8 am-u-md-10">
-              <form action="" class="am-form am-form-inline">
-                <div class="am-form-group am-form-icon">
-                  <i class="am-icon-calendar"></i>
-                  <input type="date" class="am-form-field am-input-sm" placeholder="日期">
-                </div>
-              </form>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" name="name">
             </div>
           </div>
 
           <div class="am-g am-margin-top">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              发布时间
+            <div class="am-u-sm-4 am-u-md-2 am-text-right" >
+              商品描述
             </div>
-            <div class="am-u-sm-8 am-u-md-10">
-              <form action="" class="am-form am-form-inline">
-                <div class="am-form-group am-form-icon">
-                  <i class="am-icon-calendar"></i>
-                  <input type="datetime-local" class="am-form-field am-input-sm" placeholder="时间">
-                </div>
-              </form>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" name="description">
+            </div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right" >
+              商品价格
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" name="price">
             </div>
           </div>
 
@@ -183,11 +153,13 @@
 
       </div>
     </div>
+  <div class="am-margin">
+  <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+  <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+</div>
 
-    <div class="am-margin">
-      <button type="button" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-      <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
-    </div>
+</form>
+
   </div>
 
   <footer class="admin-content-footer">
@@ -217,5 +189,21 @@
 <!--<![endif]-->
 <script src="../../js/amazeui.min.js"></script>
 <script src="../../js/app.js"></script>
+<script>
+    var imagechanged=false;
+    function change(file,ele){
+        imagechanged=true;
+        var img = document.getElementById(ele);
+
+        var reader = new FileReader();
+        reader.onload = function(evt){
+            img.src = evt.target.result;
+
+        }
+        reader.readAsDataURL(file.files[0]);
+    }
+
+
+</script>
 </body>
 </html>

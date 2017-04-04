@@ -138,23 +138,23 @@
 
 
     $(".buyatone").click(function () {
-        console.log($('#txtNum').val());//交易数量
-        $.ajax({
-            type:"POST",
-            datatype:"json",
-            url:"/order",
-            data:{
-                productid:$('#productid').text(),
-                productname:$('#productname').text(),
-                price:$("#price").text(),
-                num:$('#txtNum').val()},
-            success:function (data) {
-                if(data.code =="true"){
-                    window.location.href="/order/detail"
-                }
+            console.log($('#txtNum').val());//交易数量
+            $.ajax({
+                type:"POST",
+                datatype:"json",
+                url:"/order",
+                data:{
+                    productid:$('#productid').text(),
+                    productname:$('#productname').text(),
+                    price:$("#price").text(),
+                    num:$('#txtNum').val()},
+                success:function (data) {
+                    if(data.code =="true"){
+                        window.location.href="/order/detail"
+                    }
 
-            }
-        })
+                }
+            })
     })
 
     $(".putincart").click(function () {

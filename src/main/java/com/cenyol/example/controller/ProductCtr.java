@@ -40,14 +40,14 @@ public class ProductCtr {
         // 将所有的记录传递给返回的jsp页面
         modelMap.addAttribute("productList", productList);
         modelMap.addAttribute("productList2", productList2);
-        modelMap.addAttribute("productLis3", productList3);
+        modelMap.addAttribute("productList3", productList3);
 
         // 返回pages目录下的userManage.jsp
         return "index";
     }
 
 
-    // 用户管理
+    // 查看某个商品
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String users(ModelMap modelMap,@PathVariable String id){
         ProductEntity productEntity = productRepo.findOne(Integer.valueOf(id));

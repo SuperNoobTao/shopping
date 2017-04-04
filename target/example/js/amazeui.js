@@ -15529,7 +15529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  unsupportedBrowser: 'Browser does not support location services',
 	  permissionDenied: 'You have rejected access to your location',
 	  positionUnavailable: 'Unable to determine your location',
-	  timeout: 'Service timeout has been reached'
+	  timeout: 'service timeout has been reached'
 	};
 
 	Geolocation.ERROR_CODE = {

@@ -84,7 +84,7 @@
     <div class="hotsellmain same">
         <h3>智能生活</h3>
         <ul class="clearfix">
-            <c:forEach items="${productList}" var="p2"  >
+            <c:forEach items="${productList2}" var="p2"  >
 
                 <a href="product.jsp">
 
@@ -107,7 +107,7 @@
     <div class="hotsellmain same">
         <h3>限时促销</h3>
         <ul class="clearfix">
-            <c:forEach items="${productList}" var="p3"  >
+            <c:forEach items="${productList3}" var="p3"  >
 
                 <a href="product.jsp">
 

@@ -56,8 +56,7 @@
     <div class="am-offcanvas-bar admin-offcanvas-bar">
       <ul class="am-list admin-sidebar-list">
         <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
-        <li><a href="product.jsp"><span class="am-icon-table"></span> 表格</a></li>
-        <li><a href="productdetail.jsp"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
+        <li><a href="/admin/pro"><span class="am-icon-table"></span> 商品管理</a></li>
         <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 
@@ -120,6 +119,7 @@
 <c:forEach items="${proList}" var="p"  >
               <tr>
                 <td><input type="checkbox" /></td>
+                <td hidden>${p.productid}</td>
                 <td>${p.productname}</td>
                 <td>${p.price}</td>
                 <td><c:choose>
@@ -132,9 +132,9 @@
                 <td>
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                      <a class="am-btn am-btn-default am-btn-xs am-text-secondary"  href="/admin/pro/${p.productid}"><span class="am-icon-pencil-square-o"></span> 编辑</a>
                       <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('${p.productid}','${p.productname}')"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                   </div>
                 </td>
@@ -178,5 +178,45 @@
 <!--<![endif]-->
 <script src="../../js/amazeui.min.js"></script>
 <script src="../../js/app.js"></script>
+
+<script>
+
+    /**
+     * 删除商品
+     * @param id
+     */
+    function del(id,title){
+
+        if(confirm("您确认要删除标题为"+title+"的文章吗?")) {
+
+            $.ajax({
+                type: "post",
+                url: "/admin/pro/"+id+"/del",
+                dataType: "json",
+                timeout: 200000,
+                data: {
+                    id:id,
+                },
+                success: function (data) {
+
+                    if (data.state == '00000') {
+                        alert("操作成功");
+                        location.reload(false);
+                    }
+                    else{
+                        alert("操作失败");
+                    }
+
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("网络异常");
+                }
+            });
+
+        }
+    }
+</script>
+
 </body>
 </html>

@@ -95,15 +95,15 @@ public class ProductEntity {
         this.description = description;
     }
 
-    private Integer state;
-
-    @Basic
-    @javax.persistence.Column(name = "state")
-    public Integer getState() {
-        return state;
+    public ProductEntity() {
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public ProductEntity(String producttype, String productname, double price, int salenum, String imgurl, String description) {
+        this.producttype = producttype;
+        this.productname = productname;
+        this.price = price;
+        this.salenum = salenum;
+        this.imgurl = imgurl;
+        this.description = description;
     }
 }
