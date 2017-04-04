@@ -14,13 +14,11 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.AttributeOverride;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -117,7 +115,9 @@ public class UserController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public String info(HttpSession httpSession,ModelMap modelMap){
         UserEntity user = (UserEntity) httpSession.getAttribute("user");
-
+        if (user==null) {
+            return "login";
+        }
         List<OrderEntity> orderEntity = orderRepo.getOrderByU(user.getId());
         modelMap.addAttribute("userinfo",user);
         modelMap.addAttribute("order",orderEntity);
@@ -138,38 +138,14 @@ return "";
     }
 
 
-//    //产品添加
-//    @RequestMapping(value = "pro/add",method = RequestMethod.POST)
-//    public String addProduct(@ModelAttribute("product") ProductEntity productEntity){
-//        productService.add(productEntity);
-//        return "";
-//    }
-//
-//    //产品修改
-//    @RequestMapping(value = "pro/update",method = RequestMethod.POST)
-//    public String updateProduct(@ModelAttribute("product") ProductEntity productEntity){
-//        productService.update(productEntity);
-//        return "";
-//    }
-//
-//    //产品删除
-//    @RequestMapping(value = "del/{id}",method = RequestMethod.GET)
-//    public String delProduct(@PathVariable String id){
-//        productService.del(Integer.parseInt(id));
-//        return "";
-//    }
-//
-//
-//    @RequestMapping(value = "cart/add",method = RequestMethod.POST)
-//    public String addCart(@ModelAttribute("cart") ShoppingCartEntity shoppingCartEntity,HttpSession httpSession){
-//        UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
-//        int userid = userEntity.getId();
-//        boolean flag = shoppingCartService.add(shoppingCartEntity,userid);
-//        if (flag==true) {
-//
-//            return "";
-//        }
-//        return "";
-//    }
+    //用户登陆，登陆成功则刷新页面(未完成，应该把user对象放进session中)
+    @RequestMapping(value = "/register" ,method = RequestMethod.POST)
+    @ResponseBody
+    public HashMap<String, String> register(UserEntity userEntity){
+        HashMap<String,String>  map = new HashMap<String, String>();
+        String result = userService.register(userEntity);
+        map.put("code",result);
+        return map;
+    }
 
 }

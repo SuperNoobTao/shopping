@@ -30,6 +30,11 @@ public class FontCtr {
         // 返回pages目录下的userManage.jsp
         return "login";
     }
-
+    // 管理员首页
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String registerui(ModelMap modelMap){
+        // 返回pages目录下的userManage.jsp
+        return "register";
+    }
 
 }

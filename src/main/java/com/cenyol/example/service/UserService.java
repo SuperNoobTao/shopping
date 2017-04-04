@@ -32,4 +32,22 @@ public class UserService {
             }
         }
     }
+
+
+    public String register(UserEntity user){
+        UserEntity userEntity = userRepo.usernameExsit(user.getUsername());
+
+        if (userEntity!=null) {
+            return "10000";//用户名已存在
+        }else{
+
+            UserEntity u =  userRepo.save(user);
+            if (u!=null) {
+                return "00000";//添加成功
+            }else{
+                return "20000";//数据库错误
+            }
+        }
+
+    }
 }

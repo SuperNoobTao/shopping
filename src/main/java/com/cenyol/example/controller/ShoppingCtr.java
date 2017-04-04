@@ -31,7 +31,9 @@ public class ShoppingCtr {
     @RequestMapping(value = "/cart",method = RequestMethod.GET)
     public String cart(ModelMap modelMap, HttpSession httpSession){
         UserEntity user = (UserEntity) httpSession.getAttribute("user");
-
+        if (user==null) {
+            return "login";
+        }
         List<ShoppingCartEntity> shoppingCartEntityList = shoppingCartRepo.getCartByU(user.getId());
 
         modelMap.addAttribute("cart",shoppingCartEntityList);

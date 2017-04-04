@@ -33,7 +33,7 @@
 
                 <input class="login-btn" type="submit" value="登  录"/>
                 <div class="span-two">
-                    <a href="register.html"><span class="span-fir">免费注册</span></a>
+                    <a href="/register"><span class="span-fir">免费注册</span></a>
                     <a href="##"><span class="span-sec">忘记密码</span></a>
                 </div>
             </form>
