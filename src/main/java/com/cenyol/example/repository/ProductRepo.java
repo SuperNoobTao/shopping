@@ -22,13 +22,13 @@ public interface ProductRepo extends JpaRepository<ProductEntity, Integer> {
     @Modifying // 说明该方法是修改操作
 
     // @Param注解用于提取参数
-    @Query("update ProductEntity p set p.description=:decription, p.imgurl=:imgurl, " +
+    @Query("update ProductEntity p set p.description=:description, p.imgurl=:imgurl, " +
                                        "p.price=:price,p.productname=:productname,p.producttype=:producttype," +
-                                       "p.salenum=:salenum  where p.productid=:pid")
-    public void updatePro(@Param("description") String firstName,
-                           @Param("imgurl") String qLastName,
-                           @Param("price") String password,
-                           @Param("productname") Integer id,
+                                       "p.salenum=:salenum  where p.productid=:productid")
+    public void updatePro(@Param("description") String description,
+                           @Param("imgurl") String imgurl,
+                           @Param("price") String price,
+                           @Param("productname") Integer productname,
                            @Param("producttype") String producttype,
                            @Param("salenum") int salenum,
                            @Param("productid") int productid);

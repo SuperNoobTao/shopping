@@ -29,4 +29,16 @@ public class ShoppingCartService {
 
     }
 
+
+
+    public boolean cartExist(int productid,int userid){
+
+        ShoppingCartEntity cart = shoppingCartRepo.getInfoByPID(productid,userid);
+        if(cart!=null){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
 }

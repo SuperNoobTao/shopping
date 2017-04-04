@@ -10,8 +10,8 @@ import javax.persistence.*;
 public class ShoppingCartEntity {
 
     @Id
-    @Column(name = "shopppingcartid", nullable = false, insertable = true, updatable = true)
-    private int shopppingcartid;
+    @Column(name = "shoppingcartid", nullable = false, insertable = true, updatable = true)
+    private int shoppingcartid;
 
     @Basic
     @Column(name = "userid", nullable = true, insertable = true, updatable = true, length = 45)
@@ -37,12 +37,12 @@ public class ShoppingCartEntity {
     @Column(name = "imgurl", nullable = true, insertable = true, updatable = true, length = 45)
     private String imgurl;
 
-    public int getShopppingcartid() {
-        return shopppingcartid;
+    public int getShoppingcartid() {
+        return shoppingcartid;
     }
 
-    public void setShopppingcartid(int shopppingcartid) {
-        this.shopppingcartid = shopppingcartid;
+    public void setShoppingcartid(int shopppingcartid) {
+        this.shoppingcartid = shopppingcartid;
     }
 
     public int getUserid() {

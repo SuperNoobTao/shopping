@@ -16,9 +16,17 @@
         <a href="/"><span>首页</span></a>
         <a href="/cart"><span>购物车</span></a>
         <a href="/info"><span>个人信息</span></a>
+
+                <c:if test="${user.username == null}">
         <div class="loginbtn">
-            <a href="##"><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
+            <a href="/login"><input id="loginbtn" class="btn" type="submit" value="登陆" /></a>
         </div>
+                </c:if>
+                <c:if test="${user.username != null}">
+                <div class="loginbtn">
+                    <input id="loginbtn" class="btn" type="submit" value="欢迎" />
+                </div>
+                </c:if>
         <div class="search">
             <form >
                 <input class="text" type="text" placeholder="请输入搜索内容"/>
@@ -151,43 +159,6 @@
         <p>杭州XXXXX有限公司  © 2015 Taobao.com 版权所有</p>
     </div>
 </footer>
-
-<!--蒙层-->
-<div id="shade" style="display:none;">
-    <div class="shadeMain">
-        <div class="shadeMain_top">
-            <h3>登录</h3>
-            <span>关闭<b>×</b></span>
-        </div>
-        <div class="shadeMain_main clearfix">
-            <form class="shadeMain_left" action="/login" method="post">
-                <div class="shadeMain_input">
-                    <span class="shadeMain_name"><label for="text">用户名：</label></span>
-                    <input id="text" name="username" class="shadeMain_text" type="text" value="" />
-                </div>
-                <div class="shadeMain_input">
-                    <span class="shadeMain_name"><label for="pass">密码：</label></span>
-                    <input id="pass" name="password"  class="shadeMain_text" type="password" value="" />
-                </div>
-                <div class="shadeMain_submit">
-                    <input class="loginReg_login" type="submit" value="登录" />
-                    <a href="##" target="_blank">忘记密码</a>
-                </div>
-            </form>
-            <dl class="shadeMain_right">
-                <dt>还没有注册账号？</dt>
-                <dd><a class="loginReg_reg" href="register.html" target="_blank">注册</a></dd>
-            </dl>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
 
 <script src="../js/jquery-1.8.3.min.js"></script>
 <script src="../js/js.js"></script>

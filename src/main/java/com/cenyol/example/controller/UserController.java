@@ -138,38 +138,38 @@ return "";
     }
 
 
-    //产品添加
-    @RequestMapping(value = "pro/add",method = RequestMethod.POST)
-    public String addProduct(@ModelAttribute("product") ProductEntity productEntity){
-        productService.add(productEntity);
-        return "";
-    }
-
-    //产品修改
-    @RequestMapping(value = "pro/update",method = RequestMethod.POST)
-    public String updateProduct(@ModelAttribute("product") ProductEntity productEntity){
-        productService.update(productEntity);
-        return "";
-    }
-
-    //产品删除
-    @RequestMapping(value = "del/{id}",method = RequestMethod.GET)
-    public String delProduct(@PathVariable String id){
-        productService.del(Integer.parseInt(id));
-        return "";
-    }
-
-
-    @RequestMapping(value = "cart/add",method = RequestMethod.POST)
-    public String addCart(@ModelAttribute("cart") ShoppingCartEntity shoppingCartEntity,HttpSession httpSession){
-        UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
-        int userid = userEntity.getId();
-        boolean flag = shoppingCartService.add(shoppingCartEntity,userid);
-        if (flag==true) {
-
-            return "";
-        }
-        return "";
-    }
+//    //产品添加
+//    @RequestMapping(value = "pro/add",method = RequestMethod.POST)
+//    public String addProduct(@ModelAttribute("product") ProductEntity productEntity){
+//        productService.add(productEntity);
+//        return "";
+//    }
+//
+//    //产品修改
+//    @RequestMapping(value = "pro/update",method = RequestMethod.POST)
+//    public String updateProduct(@ModelAttribute("product") ProductEntity productEntity){
+//        productService.update(productEntity);
+//        return "";
+//    }
+//
+//    //产品删除
+//    @RequestMapping(value = "del/{id}",method = RequestMethod.GET)
+//    public String delProduct(@PathVariable String id){
+//        productService.del(Integer.parseInt(id));
+//        return "";
+//    }
+//
+//
+//    @RequestMapping(value = "cart/add",method = RequestMethod.POST)
+//    public String addCart(@ModelAttribute("cart") ShoppingCartEntity shoppingCartEntity,HttpSession httpSession){
+//        UserEntity userEntity = (UserEntity) httpSession.getAttribute("user");
+//        int userid = userEntity.getId();
+//        boolean flag = shoppingCartService.add(shoppingCartEntity,userid);
+//        if (flag==true) {
+//
+//            return "";
+//        }
+//        return "";
+//    }
 
 }

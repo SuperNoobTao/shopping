@@ -33,20 +33,28 @@
         <div class="product-left">
             <ul class="bigimg clearfix">
                 <li class="currentbigimg">
-                    <img src="${product.imgurl}">
+                    <img id="imgurl"  src="${product.imgurl}">
                 </li>
 
             </ul>
         </div>
         <div class="product-right">
-
-            <h3>${product.productname}</h3>
-            <dl><dt>${product.description}
-                </dd>
+            <h3 id="productid">${product.productid}</h3>
+            <h3 id="productname">${product.productname}</h3>
+            <dl><dd id="description">${product.description}
+            </dd>
             </dl>
-            <p>${product.price}</p>
-            <a href="/order"><input class="buyatone"   type="button"  value="立即购买" /></a>
-            <a href="shoppingcart.jsp"><input class="putincart" type="button" value="加入购物车" /></a>
+
+            <div class="salenum">
+                <span class="decnum">-</span>
+                <input name="txtNum" value="0" type="text" id="txtNum"  placeholder="0"/>
+                <span class="incnum">+</span>
+            </div>
+
+
+            <p id="price">${product.price}</p>
+            <input class="buyatone"   type="button"  value="立即购买" />
+            <input class="putincart" type="button" value="加入购物车" />
         </div>
     </div>
 </section>
@@ -55,17 +63,17 @@
 <section class="content">
     <div class="content-main same ">
         <h3>用户评价:</h3>
-       <ul class="contentlist   clearfix">
-           <c:forEach items="${contents}" var="c"  >
-               <li>
+        <ul class="contentlist   clearfix">
+            <c:forEach items="${contents}" var="c"  >
+                <li>
 
-               <i>${c.username}</i>
-               <p>${c.contentmain}
-               </p>
+                    <i>${c.username}</i>
+                    <p>${c.contentmain}
+                    </p>
 
-           </li>
-               </c:forEach>
-       </ul>
+                </li>
+            </c:forEach>
+        </ul>
     </div>
 </section>
 
@@ -81,6 +89,104 @@
 
 
 <script src="../js/jquery-1.8.3.min.js"></script>
+<script>
+    //    购买数量
+    $(document).ready(function(){
+        var curVal = $("#txtNum");
+        var temp; //得到文本框当前的数据
+        $(".decnum").click(function(){
+            temp = curVal.val()
+            if(temp<=0){
+                return false;
+            }
+            if(testNum(temp)){
+                curVal.val(--temp); //数量减1
+            }else{
+                curVal.val(0)
+            }
+        });
+        $(".incnum").click(function(){
+            temp = curVal.val()
+            if(testNum(temp)){
+                curVal.val(++temp); //数量加1
 
+            }else{
+                curVal.val(0)
+            }
+        });
+        doDashed();
+//得到购买数量，并判断是否是正确格式
+        function testNum(tempNum){
+            if(/^[0-9]+$/.test(tempNum)){
+                console.log("亲，输入正确哦 *_*")
+                return true;
+            }
+            console.log("亲，你输入的不是正确数字啦 ^_^");
+            return false;
+        }
+    });
+    //处理点击链接时的虚线框
+    function doDashed(){
+        $('#txtNum').focus(function(){
+            if(this.blur){
+                this.blur();
+            }
+        });
+    }
+
+
+
+
+    $(".buyatone").click(function () {
+        console.log($('#txtNum').val());//交易数量
+        $.ajax({
+            type:"POST",
+            datatype:"json",
+            url:"/order",
+            data:{
+                productid:$('#productid').text(),
+                productname:$('#productname').text(),
+                price:$("#price").text(),
+                num:$('#txtNum').val()},
+            success:function (data) {
+                if(data.code =="true"){
+                    window.location.href="/order/detail"
+                }
+
+            }
+        })
+    })
+
+    $(".putincart").click(function () {
+        $.ajax({
+            type:"post",
+            datatype:"json",
+            url:"/cart/add",
+            data:{
+                productid:$('#productid').text(),
+                productname:$('#productname').text(),
+                imgurl:$('#imgurl').text(),
+                price:$("#price").text()},
+            success:function (data) {
+                if(data.code =="false"){
+                    var html="";
+                    html+="<span>已存在</span>";
+                    $(".putincart").append(html);
+                }else if (data.code =="true") {
+                    window.location.href="/cart";
+                }
+
+            },
+
+        })
+    })
+
+
+
+
+
+
+
+</script>
 </body>
 </html>

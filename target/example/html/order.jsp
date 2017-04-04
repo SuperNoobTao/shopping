@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +12,9 @@
 <!--nav-->
 <header class="samebg">
     <div class="nav same clearfix">
-        <a href="index.jsp"><span>首页</span></a>
-        <a href="shoppingcart.html"><span>购物车</span></a>
-        <a href="user.jsp"><span>个人信息</span></a>
+        <a href="/"><span>首页</span></a>
+        <a href="/cart"><span>购物车</span></a>
+        <a href="/user"><span>个人信息</span></a>
         <div class="loginbtn">
             <a href="##"><input id="loginbtn" class="btn" type="submit" value="欢迎" /></a>
         </div>
@@ -38,17 +41,17 @@
                 <td>总价</td>
             </tr>
             <tr>
-                <td>天堂羽</td>
-                <td>智能擦窗机器人</td>
-                <td>浙江大学城市学院湖州街51号</td>
-                <td>12345678912</td>
-                <td>2</td>
-                <td>2000</td>
+                <td>${order.username}</td>
+                <td>${order.productname}</td>
+                <td>${order.orderaddress}</td>
+                <td>${order.ordertel}</td>
+                <td>${order.ordernum}</td>
+                <td>${order.orderprice}</td>
             </tr>
         </table>
         <div class="threebtns clearfix">
             <input type="button" value="修改信息"/>
-            <input class="buttomsec" type="button" value="确认订单"/>
+            <input class="buttomsec" type="submit" value="确认订单"/>
             <a href="product.jsp"><input class="buttomrthr" type="button" value="取消"/></a>
         </div>
     </div>
@@ -63,4 +66,6 @@
     </div>
 </footer>
 </body>
+
+
 </html>

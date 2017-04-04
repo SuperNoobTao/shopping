@@ -23,4 +23,13 @@ public class FontCtr {
         // 返回pages目录下的userManage.jsp
         return "admin/index";
     }
+
+    // 管理员首页
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String loginui(ModelMap modelMap){
+        // 返回pages目录下的userManage.jsp
+        return "login";
+    }
+
+
 }
