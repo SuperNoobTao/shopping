@@ -39,7 +39,7 @@
             </ul>
         </div>
         <div class="product-right">
-            <h3 id="productid">${product.productid}</h3>
+            <h3 hidden id="productid">${product.productid}</h3>
             <h3 id="productname">${product.productname}</h3>
             <dl><dd id="description">${product.description}
             </dd>
@@ -165,7 +165,7 @@
             data:{
                 productid:$('#productid').text(),
                 productname:$('#productname').text(),
-                imgurl:$('#imgurl').text(),
+                imgurl:$('#imgurl').src,
                 price:$("#price").text()},
             success:function (data) {
                 if(data.code =="false"){

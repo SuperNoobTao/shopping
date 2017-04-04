@@ -37,12 +37,13 @@ public class ShoppingCartEntity {
     @Column(name = "imgurl", nullable = true, insertable = true, updatable = true, length = 45)
     private String imgurl;
 
+
     public int getShoppingcartid() {
         return shoppingcartid;
     }
 
-    public void setShoppingcartid(int shopppingcartid) {
-        this.shoppingcartid = shopppingcartid;
+    public void setShoppingcartid(int shoppingcartid) {
+        this.shoppingcartid = shoppingcartid;
     }
 
     public int getUserid() {

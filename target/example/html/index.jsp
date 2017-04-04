@@ -86,7 +86,7 @@
         <ul class="clearfix">
             <c:forEach items="${productList2}" var="p2"  >
 
-                <a href="product.jsp">
+                <a href="/${p1.productid}">
 
                     <li>
                         <img src="${p2.imgurl}"  />
@@ -109,7 +109,7 @@
         <ul class="clearfix">
             <c:forEach items="${productList3}" var="p3"  >
 
-                <a href="product.jsp">
+                <a href="/${p1.productid}">
 
                     <li>
                         <img src="${p3.imgurl}"  />

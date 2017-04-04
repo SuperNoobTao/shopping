@@ -44,7 +44,12 @@ public class ShoppingCtr {
 
     @RequestMapping(value = "/cart/add",method = RequestMethod.POST)
     @ResponseBody
-    public HashMap<String, String> cart(HttpSession httpSession, String productname, String imgurl, String price, String productid){
+    public HashMap<String, String> cart(
+            HttpSession httpSession,
+            String productname,
+            String imgurl,
+            String price,
+            String productid){
         HashMap<String,String>  map = new HashMap<String, String>();
 
         UserEntity user = (UserEntity) httpSession.getAttribute("user");

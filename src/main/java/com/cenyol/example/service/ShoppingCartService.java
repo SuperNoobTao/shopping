@@ -17,7 +17,8 @@ public class ShoppingCartService {
     @Autowired
     private ShoppingCartRepo shoppingCartRepo;
 
-    public boolean add(ShoppingCartEntity shoppingCartEntity,int userid){
+    public boolean
+    add(ShoppingCartEntity shoppingCartEntity,int userid){
 
         ShoppingCartEntity cart = shoppingCartRepo.getInfoByPID(shoppingCartEntity.getProductid(),userid);
         if(cart!=null){
