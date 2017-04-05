@@ -91,9 +91,9 @@
           <div class="am-btn-toolbar">
             <div class="am-btn-group am-btn-group-xs">
               <button type="button" onclick="window.location.href='/admin/pro/add'" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+              <%--<button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>--%>
+              <%--<button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>--%>
+              <%--<button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>--%>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
                       <a class="am-btn am-btn-default am-btn-xs am-text-secondary"  href="/admin/pro/${p.productid}"><span class="am-icon-pencil-square-o"></span> 编辑</a>
-                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                      <%--<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>--%>
                       <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('${p.productid}','${p.productname}')"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                   </div>

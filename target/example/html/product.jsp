@@ -47,7 +47,7 @@
 
             <div class="salenum">
                 <span class="decnum">-</span>
-                <input name="txtNum" value="0" type="text" id="txtNum"  placeholder="0"/>
+                <input name="txtNum" value="1" type="text" id="txtNum"  placeholder="0"/>
                 <span class="incnum">+</span>
             </div>
 
@@ -80,11 +80,11 @@
 
 
 <!--footer-->
-<footer id="footer" >
-    <div class="f-bottom same">
-        <p>杭州XXXXX有限公司  © 2015 Taobao.com 版权所有</p>
-    </div>
-</footer>
+<%--<footer id="footer" >--%>
+    <%--<div class="f-bottom same">--%>
+        <%--<p>杭州XXXXX有限公司  © 2015 Taobao.com 版权所有</p>--%>
+    <%--</div>--%>
+<%--</footer>--%>
 
 
 
@@ -136,6 +136,7 @@
 
 
 
+   console.log($('#imgurl').attr('src'));
 
     $(".buyatone").click(function () {
             console.log($('#txtNum').val());//交易数量
@@ -165,7 +166,7 @@
             data:{
                 productid:$('#productid').text(),
                 productname:$('#productname').text(),
-                imgurl:$('#imgurl').src,
+                imgurl:$('#imgurl').attr('src'),
                 price:$("#price").text()},
             success:function (data) {
                 if(data.code =="false"){
