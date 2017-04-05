@@ -114,6 +114,7 @@ public class UserController {
     // 用户详细信息界面
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public String info(HttpSession httpSession,ModelMap modelMap){
+//        从Session中读取用户 没有则返回登录页面
         UserEntity user = (UserEntity) httpSession.getAttribute("user");
         if (user==null) {
             return "login";
@@ -143,6 +144,7 @@ return "";
     @ResponseBody
     public HashMap<String, String> register(UserEntity userEntity){
         HashMap<String,String>  map = new HashMap<String, String>();
+        userEntity.setMoney(1000);
         String result = userService.register(userEntity);
         map.put("code",result);
         return map;

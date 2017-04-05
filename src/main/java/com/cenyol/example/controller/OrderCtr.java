@@ -64,6 +64,7 @@ public class OrderCtr {
     @RequestMapping(value = "/order/detail/add",method = RequestMethod.GET)
     @ResponseBody
     public HashMap<String, String>  orderdetailadd(HttpSession httpSession){
+
         HashMap<String,String>  map = new HashMap<String, String>();
         OrderEntity orderEntity = (OrderEntity) httpSession.getAttribute("order");
         UserEntity user = userRepo.findOne(orderEntity.getUserid());
