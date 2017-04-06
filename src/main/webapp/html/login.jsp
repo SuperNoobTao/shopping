@@ -27,7 +27,7 @@
                 </div>
                 <div class="login-pwd">
                     <div class="pwd-icon"></div>
-                    <input class="username-input" name="password" type="text" placeholder="请输入密码"/>
+                    <input class="username-input" name="password" type="password" placeholder="请输入密码"/>
                 </div>
 
 

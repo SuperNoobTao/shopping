@@ -33,14 +33,15 @@
         <h3>我的收藏</h3>
         <ul class="clearfix">
 
-            <c:forEach items="${cart}" var="c"  >
-                <li>
-                    <img src="${c.imgurl}"/>
-                    <p>${c.productname}</p>
-                    <p class="price">${c.price}</p>
-                </li>
-            </c:forEach>
-
+                <c:forEach items="${cart}" var="c"  >
+                    <a href="/${c.productid}">
+                    <li>
+                        <img src="${c.imgurl}"/>
+                        <p>${c.productname}</p>
+                        <p class="price">${c.price}</p>
+                    </li>
+                </c:forEach>
+                     </a>
 
         </ul>
     </div>

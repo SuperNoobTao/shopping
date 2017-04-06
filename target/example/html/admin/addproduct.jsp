@@ -132,6 +132,7 @@
 
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right" >
+            <div class="am-u-sm-4 am-u-md-2 am-text-right" >
               商品描述
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
