@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="165a2c19-a91b-43cc-a242-9954c5aa080f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/admin/addproduct.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/admin/addproduct.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/admin/product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/admin/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/order.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/order.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/shoppingcart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/shoppingcart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/example/html/admin/addproduct.jsp" afterPath="$PROJECT_DIR$/target/example/html/admin/addproduct.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/example/html/admin/product.jsp" afterPath="$PROJECT_DIR$/target/example/html/admin/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/example/html/login.jsp" afterPath="$PROJECT_DIR$/target/example/html/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/example/html/order.jsp" afterPath="$PROJECT_DIR$/target/example/html/order.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/example/html/product.jsp" afterPath="$PROJECT_DIR$/target/example/html/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/example/html/shoppingcart.jsp" afterPath="$PROJECT_DIR$/target/example/html/shoppingcart.jsp" />
-    </list>
+    <list default="true" id="165a2c19-a91b-43cc-a242-9954c5aa080f" name="Default" comment="" />
     <ignored path="demo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -157,13 +143,13 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/admin/product.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="314">
-              <caret line="177" column="4" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="4" />
+              <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
               <folding>
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#7558#8316#0#HTML" expanded="false" />
-                <marker date="1491495993311" expanded="true" signature="1014:1135" ph="..." />
+                <element signature="e#7554#8312#0#HTML" expanded="false" />
+                <marker date="1491496870370" expanded="true" signature="1014:1135" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1248,7 +1234,7 @@
       <workItem from="1491313559188" duration="1276000" />
       <workItem from="1491388000843" duration="15303000" />
       <workItem from="1491483259157" duration="6598000" />
-      <workItem from="1491494880120" duration="1539000" />
+      <workItem from="1491494880120" duration="1592000" />
     </task>
     <task id="LOCAL-00001" summary="entity">
       <created>1490794948508</created>
@@ -1289,11 +1275,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136172000" />
+    <option name="totallyTimeSpent" value="136225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15548281" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1305,7 +1291,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="消息" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12765957" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12765957" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28837556" sideWeight="0.24863686" order="2" side_tool="true" content_ui="tabs" />
@@ -1553,6 +1539,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1879,13 +1866,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/admin/product.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
-          <caret line="177" column="4" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="4" />
+          <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
           <folding>
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#footer#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#7558#8316#0#HTML" expanded="false" />
-            <marker date="1491495993311" expanded="true" signature="1014:1135" ph="..." />
+            <element signature="e#7554#8312#0#HTML" expanded="false" />
+            <marker date="1491496870370" expanded="true" signature="1014:1135" ph="..." />
           </folding>
         </state>
       </provider>
