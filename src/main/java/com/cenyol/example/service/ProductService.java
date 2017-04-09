@@ -1,11 +1,16 @@
 package com.cenyol.example.service;
 
 import com.cenyol.example.model.ProductEntity;
+import com.cenyol.example.model.PromotionEntity;
 import com.cenyol.example.repository.ProductRepo;
+import com.cenyol.example.repository.PromotionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sun.font.TrueTypeFont;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/1.
@@ -15,6 +20,36 @@ public class ProductService {
 
     @Autowired
     private ProductRepo productRepo;
+
+    @Autowired
+    private PromotionRepo promotionRepo;
+
+
+
+    public List<ProductEntity> prolist(String type){
+        List<ProductEntity> list = productRepo.getProductS(type);
+        for (int i=0;i<list.size();i++) {
+            Double price = promotionRepo.getPrice(new Date(),list.get(i).getProductid());
+            if (price != null) {
+                list.get(i).setPrice(price);
+            }
+        }
+        return list;
+    }
+
+    public ProductEntity findOne(int id) {
+        ProductEntity productEntity = productRepo.findOne(id);
+        Double price = promotionRepo.getPrice(new Date(), id);
+        if (price != null) {
+            productEntity.setPrice(price);
+
+        }
+        return productEntity;
+    }
+
+
+
+
 
     @Transactional
     public ProductEntity add(ProductEntity productEntity) {

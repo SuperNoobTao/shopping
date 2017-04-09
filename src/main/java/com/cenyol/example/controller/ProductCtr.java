@@ -4,6 +4,7 @@ import com.cenyol.example.model.ContentEntity;
 import com.cenyol.example.model.ProductEntity;
 import com.cenyol.example.repository.ContentRepo;
 import com.cenyol.example.repository.ProductRepo;
+import com.cenyol.example.service.ProductService;
 import com.cenyol.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,17 +27,18 @@ public class ProductCtr {
     private ProductRepo productRepo;
     @Autowired
     private ContentRepo contentRepo;
-
+    @Autowired
+    private ProductService productService;
 
     // 首页
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String users(ModelMap modelMap){
         // 热门销售
-        List<ProductEntity> productList = productRepo.getProductS(StringUtil.Hot_sale);
+        List<ProductEntity> productList = productService.prolist(StringUtil.Hot_sale);
         // 智能生活
-        List<ProductEntity> productList2 = productRepo.getProductS(StringUtil.Intelligent_life);
+        List<ProductEntity> productList2 = productService.prolist(StringUtil.Intelligent_life);
         // 限时促销
-        List<ProductEntity> productList3 = productRepo.getProductS(StringUtil.Timed_promotion);
+        List<ProductEntity> productList3 = productService.prolist(StringUtil.Timed_promotion);
         // 将所有的记录传递给返回的jsp页面
         modelMap.addAttribute("productList", productList);
         modelMap.addAttribute("productList2", productList2);
@@ -50,7 +52,7 @@ public class ProductCtr {
     // 查看某个商品
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String users(ModelMap modelMap,@PathVariable String id){
-        ProductEntity productEntity = productRepo.findOne(Integer.valueOf(id));
+        ProductEntity productEntity = productService.findOne(Integer.valueOf(id));
         List<ContentEntity> contentEntityList = contentRepo.getContentByP(Integer.parseInt(id));
 
         modelMap.addAttribute("product", productEntity);
