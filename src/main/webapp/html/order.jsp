@@ -15,7 +15,7 @@
     <div class="nav same clearfix">
         <a href="/"><span>首页</span></a>
         <a href="/cart"><span>购物车</span></a>
-        <a href="/user"><span>个人信息</span></a>
+        <a href="/info"><span>个人信息</span></a>
         <div class="loginbtn">
             <a href="##"><input id="loginbtn" class="btn" type="submit" value="欢迎" /></a>
         </div>

@@ -17,6 +17,13 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="../../css/amazeui.min.css"/>
   <link rel="stylesheet" href="../../css/admin.css">
+  <style>
+    .cuxiao{ width: 400px;height: 200px;padding: 10px 0 0 10px;  position:absolute;top:50%;left: 50%;margin-top: -105px;margin-left: -205px;background: deepskyblue;border: 2px solid #e7e7e7;border-radius:5px; }
+    .cuxiao div {margin-bottom: 10px;height: 40px;}
+    .cuxiao label {float: left;margin-right: 10px;width: 112px;}
+    .cuxiao input{float:left;       margin-right: 10px;border: 0;background: #e7e7e7;border-radius:5px;padding-left: 5px;width: 208px; }
+
+  </style>
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -103,6 +110,7 @@
 
       <div class="am-g">
         <div class="am-u-sm-12">
+
           <form class="am-form">
             <table class="am-table am-table-striped am-table-hover table-main">
               <thead>
@@ -116,6 +124,7 @@
               </tr>
               </thead>
               <tbody>
+              <%--${proList}:列表   var="p" ：列表里的一个数据--%>
 <c:forEach items="${proList}" var="p"  >
               <tr>
                 <td><input type="checkbox" /></td>
@@ -129,12 +138,13 @@
                 </c:choose>
                 </td>
 
-                <td>
+                <td >
                   <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
+                    <div class="am-btn-group am-btn-group-xs" id="cuxiaof" >
                       <a class="am-btn am-btn-default am-btn-xs am-text-secondary"  href="/admin/pro/${p.productid}"><span class="am-icon-pencil-square-o"></span> 编辑</a>
-                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" id="cuxiao"><span class="am-icon-copy"></span> 促销</button>
+                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="Funcuxiao('${p.productid}')" ><span class="am-icon-copy"></span> 促销</button>
                       <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('${p.productid}','${p.productname}')"><span class="am-icon-trash-o"></span> 删除</button>
+
                     </div>
                   </div>
                 </td>
@@ -174,8 +184,21 @@
   <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
 </footer>
 
-<section class="cuxiao">
-    
+<%--促销--%>
+<section class="cuxiao"  hidden>
+  <div class="clearfix">
+    <label  for="starttime" >请输入开始时间  </label>
+    <input  id="starttime"  type="datetime-local" placeholder="开始时间">
+  </div>
+  <div class="clearfix">
+  <label  for="endtime" >请输入结束时间  </label>
+  <input  id="endtime"  type="datetime-local" placeholder="结束时间">
+  </div>
+  <div class="clearfix">
+  <label  for="price" >请输入价格  </label>
+  <input  id="price"  type="text" placeholder="价格">
+  </div>
+ <button class="queren">确认</button>
 </section>
 
 
@@ -194,13 +217,51 @@
 
 <script>
 
+//促销
+  function Funcuxiao(id) {
+    $('.cuxiao').show();
+    event.preventDefault();
+  }
+
+
+  $('.queren').click(function () {
+    var starttime=$('#starttime').val();
+    var endtime=$('#endtime').val();
+    var price=$('#price').val();
+      console.log(starttime,endtime,price)
+      $.ajax({
+        type:'post',
+        url:'',     //自己加
+        dataType: "json",
+        timeout: 200000,
+        data: {
+          starttime:starttime,
+          endtime:endtime,
+          price:price,
+        },
+        success:function (data) {
+
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert("网络异常");
+      }
+    })
+
+      $('.cuxiao').hide();
+  })
+
+
+
+
+
+
     /**
      * 删除商品
      * @param id
      */
     function del(id,title){
-
-        if(confirm("您确认要删除标题为"+title+"的文章吗?")) {
+      $('.cuxiao').show();
+        if(confirm("您确认要删除标题为"+title+"的商品吗?")) {
 
             $.ajax({
                 type: "post",
@@ -230,10 +291,9 @@
         }
     }
 
-//    促销模块
-    $("#cuxiao").click(function () {
 
-    })
+
+
 
 
 

@@ -35,7 +35,7 @@ public class AdminFontCtr {
     public String proList(ModelMap modelMap) {
         // 返回pages目录下的userManage.jsp
         List<ProductEntity> productList = productRepo.findAll();
-        modelMap.addAttribute("proList", productList);
+        modelMap.addAttribute("proList", productList);//用于将controller方法里面的参数(proList)传递给所需的jsp页面，以进行相关显示
         return "admin/product";
     }
 
@@ -56,7 +56,7 @@ public class AdminFontCtr {
     }
 
 
-    @RequestMapping(value = "/admin/pro/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/pro/add", method = RequestMethod.POST)//得到接收的数据
     public ModelAndView proadd(
             String type,
             String price,
@@ -89,7 +89,7 @@ public class AdminFontCtr {
                     description
             );
             if (productService.add(productEntity) != null) {
-                //success
+                //数据传输到数据库success
                 map.put("msg", "添加成功");
             } else {
                 //fail
