@@ -34,11 +34,14 @@
         <ul class="clearfix">
 
             <c:forEach items="${cart}" var="c"  >
+
+                <a href="/${c.productid}">
                 <li>
                     <img src="${c.imgurl}"/>
                     <p>${c.productname}</p>
                     <p class="price">${c.price}</p>
                 </li>
+                </a>
             </c:forEach>
 
 
