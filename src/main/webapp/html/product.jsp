@@ -169,10 +169,11 @@
                 imgurl:$('#imgurl').attr('src'),
                 price:$("#price").text()},
             success:function (data) {
+                console.log(data)
                 if(data.code =="false"){
                     var html="";
-                    html+="<span>已存在</span>";
-                    $(".putincart").append(html);
+                    html+="<span style='margin-top: 33px;float:left;color: red;font-size: 15px;'>已存在</span>";
+                    $(".product-right").append(html);
                 }else if (data.code =="true") {
                     window.location.href="/cart";
                 }

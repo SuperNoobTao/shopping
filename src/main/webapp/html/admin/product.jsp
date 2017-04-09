@@ -133,7 +133,7 @@
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
                       <a class="am-btn am-btn-default am-btn-xs am-text-secondary"  href="/admin/pro/${p.productid}"><span class="am-icon-pencil-square-o"></span> 编辑</a>
-                      <%--<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>--%>
+                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" id="cuxiao"><span class="am-icon-copy"></span> 促销</button>
                       <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('${p.productid}','${p.productname}')"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                   </div>
@@ -156,8 +156,15 @@
       <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
     </footer>
 
+
+
   </div>
   <!-- content end -->
+
+
+
+
+
 </div>
 
 <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
@@ -166,6 +173,12 @@
   <hr>
   <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
 </footer>
+
+<section class="cuxiao">
+
+</section>
+
+
 
 <!--[if lt IE 9]>
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -216,6 +229,14 @@
 
         }
     }
+
+//    促销模块
+    $("#cuxiao").click(function () {
+
+    })
+
+
+
 </script>
 
 </body>

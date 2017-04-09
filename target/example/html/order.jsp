@@ -31,7 +31,7 @@
 <!--确认订单信息-->
 <section class="orderlist">
     <form>
-    <div class="orderlistmian same">
+     <div class="orderlistmian same">
         <h3>确认订单信息</h3>
         <table border="1px">
             <tr>
@@ -52,12 +52,12 @@
             </tr>
         </table>
         <div class="threebtns clearfix">
-            <input type="button" value="修改信息"/>
+            <a href="/${order.productid}"><input type="button" value="取消"/></a>
             <input class="buttomsec" type="button" value="确认订单"/>
-            <a href="product.jsp"><input class="buttomrthr" type="button" value="取消"/></a>
+            <%--<a href="/${order.productid}"><input class="buttomrthr" type="button" value="取消"/></a>--%>
         </div>
     </div>
-
+    </form>
 </section>
 
 
