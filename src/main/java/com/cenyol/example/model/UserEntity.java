@@ -9,7 +9,6 @@ import java.util.Collection;
 @Entity
 @Table(name = "user")
 public class UserEntity {
-
     @Id
     @Column(name = "userid", nullable = false, insertable = true, updatable = true)
     private int id;
@@ -45,7 +44,6 @@ public class UserEntity {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getUsername() {
         return username;

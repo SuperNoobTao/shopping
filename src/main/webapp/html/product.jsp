@@ -95,7 +95,7 @@
         var curVal = $("#txtNum");
         var temp; //得到文本框当前的数据
         $(".decnum").click(function(){
-            temp = curVal.val()
+            temp = curVal.val();
             if(temp<=0){
                 return false;
             }

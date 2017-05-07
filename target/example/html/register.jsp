@@ -50,8 +50,6 @@
 
 <script>
     $(".regsub").click(function () {
-
-
         var username =$('#username').val();
         var password =$('#password').val();
         var password2 =$('#password2').val();
@@ -73,20 +71,19 @@
         else if (tel=="") {
             alert("电话不许为空");
             return;
-        }else if (email=="") {
+        }
+        else if (email=="") {
             alert("邮箱不许为空");
             return;
-        }else if (address=="") {
+        }else if (address=="")
+        {
             alert("地址不许为空");
             return;
         }else if (password !== password2) {
             alert("两次密码输入不一致");
             return;
         }
-
-
         else{
-
         $.ajax({
             type:"POST",
             datatype:"json",

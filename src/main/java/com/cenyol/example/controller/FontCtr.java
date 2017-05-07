@@ -14,7 +14,7 @@ public class FontCtr {
     @RequestMapping(value = "/admin/login", method = RequestMethod.GET)
     public String login(ModelMap modelMap){
         // 返回pages目录下的userManage.jsp
-        return "admin/login";
+        return "admin/login";//处理完该请求后返回的页面
     }
 
     // 管理员首页
