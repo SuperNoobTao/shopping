@@ -58,6 +58,7 @@
         <li><a href="index.jsp"><span class="am-icon-home"></span> 首页</a></li>
 
         <li><a href="/admin/pro"><span class="am-icon-table"></span> 商品管理</a></li>
+        <li><a href="/admin/order"><span class="am-icon-table"></span>订单管理</a></li>
         <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 

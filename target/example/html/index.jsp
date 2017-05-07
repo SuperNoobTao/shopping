@@ -28,8 +28,8 @@
                 </div>
                 </c:if>
         <div class="search">
-            <form >
-                <input class="text" type="text" placeholder="请输入搜索内容"/>
+            <form action="/search" method="post">
+                <input class="text" type="text" name="name" placeholder="请输入搜索内容"/>
                 <input class="btn1" type="submit" value="" />
         </form>
         </div>

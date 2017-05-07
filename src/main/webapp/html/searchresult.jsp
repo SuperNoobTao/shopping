@@ -1,9 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>searchresult</title>
+
 </head>
+<link href="../css/style1.css"  rel="stylesheet" type="text/css" />
 <body>
 <header class="samebg">
     <div class="nav same clearfix">
@@ -14,8 +19,8 @@
             <a href="##"><input id="loginbtn" class="btn" type="submit" value="欢迎" /></a>
         </div>
         <div class="search">
-            <form >
-                <input class="text" type="text" placeholder="请输入搜索内容"/>
+            <form  action="/search" method="post">
+                <input class="text" type="text" name="name" placeholder="请输入搜索内容"/>
                 <input class="btn1" type="submit" value="" />
             </form>
         </div>
@@ -29,7 +34,7 @@
         <h3>相关商品</h3>
         <ul class="clearfix">
 
-            <c:forEach items="${cart}" var="c"  >
+            <c:forEach items="${product}" var="c"  >
                 <li>
                     <img src="${c.imgurl}"/>
                     <p>${c.productname}</p>

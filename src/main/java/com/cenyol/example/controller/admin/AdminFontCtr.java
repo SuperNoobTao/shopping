@@ -1,7 +1,10 @@
 package com.cenyol.example.controller.admin;
 
+import com.cenyol.example.model.OrderEntity;
 import com.cenyol.example.model.ProductEntity;
+import com.cenyol.example.repository.OrderRepo;
 import com.cenyol.example.repository.ProductRepo;
+import com.cenyol.example.service.OrderService;
 import com.cenyol.example.service.ProductService;
 import com.cenyol.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,10 @@ public class AdminFontCtr {
     private ProductRepo productRepo;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private OrderRepo orderRepo;
+    @Autowired
+    private OrderService orderService;
 
     // 商品列表
     @RequestMapping(value = "/admin/pro", method = RequestMethod.GET)
@@ -197,6 +204,37 @@ public class AdminFontCtr {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+
+    // 订单列表
+    @RequestMapping(value = "/admin/order", method = RequestMethod.GET)
+    public String orderList(ModelMap modelMap) {
+        // 返回pages目录下的userManage.jsp
+        List<OrderEntity> orderList = orderRepo.findAll();
+        modelMap.addAttribute("orderList", orderList);
+        return "admin/order";
+    }
+
+
+    @RequestMapping(value = "/admin/order/{id}/del", method = RequestMethod.POST)
+    @ResponseBody
+    public HashMap<String, String> orderDel(
+            @PathVariable String id
+    ) {
+        HashMap hm = new HashMap();
+
+
+        if (orderService.del(Integer.parseInt(id)) == true) {
+
+            hm.put("state", "00000");
+
+        }else{
+            hm.put("state","10000");
+        }
+
+        return  hm;
 
     }
 
