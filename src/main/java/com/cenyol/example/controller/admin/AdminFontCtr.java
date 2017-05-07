@@ -252,15 +252,19 @@ public class AdminFontCtr {
     @ResponseBody
     public HashMap<String, String> cuxiao(
             String productid,
-            Date starttime,
-            Date   endtime,
+            String starttime,
+            String   endtime,
              String price){
 
 //        Date starttime1 =AdminFontCtr.LocalDateTimeToUdate(starttime);
 //        Date endtime1 =AdminFontCtr.LocalDateTimeToUdate(endtime);
 
         HashMap<String,String> map = new HashMap<String, String>();
-        PromotionEntity promotionEntity = new PromotionEntity(Integer.valueOf(productid),Double.valueOf(price),starttime,endtime);
+
+        Date date1 = t2(Long.parseLong(starttime));
+        Date date2 = t2(Long.parseLong(endtime));
+
+        PromotionEntity promotionEntity = new PromotionEntity(Integer.valueOf(productid),Double.valueOf(price),date1,date2);
         if (promotionService.add(promotionEntity)!=null) {
                 map.put("state","00000");
 
@@ -269,12 +273,15 @@ public class AdminFontCtr {
         return map;
 }
 
-    public static Date LocalDateTimeToUdate(LocalDateTime localDateTime) {
-        localDateTime = LocalDateTime.now();
-        ZoneId zone = ZoneId.systemDefault();
-        Instant instant = localDateTime.atZone(zone).toInstant();
-        Date date = Date.from(instant);
-        return  date;
+    /**
+     * 时间戳转换为日期对象
+     */
+    public static Date t2(long times){
+
+        Date date = new Date(times);
+        System.out.println(date);
+        //输出结果：Tue Dec 10 16:54:26 CST 2013
+        return date;
     }
 
 }

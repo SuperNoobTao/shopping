@@ -20,4 +20,7 @@ public interface PromotionRepo extends JpaRepository<PromotionEntity, Integer> {
     public Double getPrice(@Param("date") Date date,
                               @Param("productid") int productid);
 
+
+
+
 }

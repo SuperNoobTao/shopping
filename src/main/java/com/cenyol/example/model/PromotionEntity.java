@@ -1,9 +1,8 @@
 package com.cenyol.example.model;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  * Created by shentao on 2017/4/9.
@@ -91,5 +90,15 @@ public class PromotionEntity {
         result = 31 * result + (startdate != null ? startdate.hashCode() : 0);
         result = 31 * result + (finishdate != null ? finishdate.hashCode() : 0);
         return result;
+    }
+
+    public PromotionEntity(Integer productid, Double price, Date startdate, Date finishdate) {
+        this.productid = productid;
+        this.price = price;
+        this.startdate = startdate;
+        this.finishdate = finishdate;
+    }
+
+    public PromotionEntity() {
     }
 }

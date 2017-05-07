@@ -64,7 +64,7 @@
       <ul class="am-list admin-sidebar-list">
         <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
         <li><a href="/admin/pro"><span class="am-icon-table"></span> 商品管理</a></li>
-        <li><a href="/admin/order"><span class="am-icon-table"></span>订单管理</a></li>
+        <li><a href="/admin/order"><span class="am-icon-table"></span> 订单管理</a></li>
         <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 
@@ -234,13 +234,16 @@ $('.cancel').click(function () {
 
 
   $('.queren').click(function () {
-    var starttime=$('#starttime').val();
-    var endtime=$('#endtime').val();
+
     var price=$('#price').val();
+      var starttimeval=$('#starttime').val();
+      var starttime=new Date(starttimeval).getTime();
+      var endtimeval=$('#endtime').val();
+      var endtime=new Date(endtimeval).getTime();
       console.log(starttime,endtime,price)
       $.ajax({
         type:'post',
-        url:'/admin/pro/promotion/add',
+        url:'/cx/add',
         dataType: "json",
         timeout: 200000,
         data: {
@@ -250,7 +253,13 @@ $('.cancel').click(function () {
           price:price,
         },
         success:function (data) {
-
+            if (data.state == '00000') {
+                alert("操作成功");
+                location.reload(false);
+            }
+            else{
+                alert("操作失败");
+            }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
           alert("网络异常");
