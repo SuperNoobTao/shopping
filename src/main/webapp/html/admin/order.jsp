@@ -57,6 +57,7 @@
       <ul class="am-list admin-sidebar-list">
         <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
         <li><a href="/admin/pro"><span class="am-icon-table"></span> 商品管理</a></li>
+        <li><a href="/admin/order"><span class="am-icon-table"></span>订单管理</a></li>
         <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
       </ul>
 
@@ -109,32 +110,29 @@
               <tr>
                 <th class="table-check"><input type="checkbox" /></th>
                 <th class="table-id" hidden>ID</th>
-                <th class="table-title">商品名</th>
+                <th class="table-title">用户</th>
+                <th class="table-type">产品</th>
+                <th class="table-author am-hide-sm-only">收货地址</th>
                 <th class="table-type">价格</th>
-                <th class="table-author am-hide-sm-only">商品类别</th>
-
+                <th class="table-type">数量</th>
+                <th class="table-type">电话</th>
               </tr>
               </thead>
               <tbody>
-<c:forEach items="${proList}" var="p"  >
+<c:forEach items="${orderList}" var="p"  >
               <tr>
                 <td><input type="checkbox" /></td>
-                <td hidden>${p.productid}</td>
+                <td hidden>${p.orderid}</td>
+                <td>${p.username}</td>
                 <td>${p.productname}</td>
-                <td>${p.price}</td>
-                <td><c:choose>
-                  <c:when test="${p.producttype  eq 1}">热门销售</c:when>
-                  <c:when test="${p.producttype  eq 2}">智能生活</c:when>
-                  <c:when test="${p.producttype  eq 3}">限时促销</c:when>
-                </c:choose>
-                </td>
-
+                <td>${p.orderaddress}</td>
+                <td>${p.orderprice}</td>
+                <td>${p.ordernum}</td>
+                <td>${p.ordertel}</td>
                 <td>
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                      <a class="am-btn am-btn-default am-btn-xs am-text-secondary"  href="/admin/pro/${p.productid}"><span class="am-icon-pencil-square-o"></span> 编辑</a>
-                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" id="cuxiao"><span class="am-icon-copy"></span> 促销</button>
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('${p.productid}','${p.productname}')"><span class="am-icon-trash-o"></span> 删除</button>
+                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="del('${p.orderid}')"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                   </div>
                 </td>
@@ -198,13 +196,13 @@
      * 删除商品
      * @param id
      */
-    function del(id,title){
+    function del(id){
 
-        if(confirm("您确认要删除标题为"+title+"的文章吗?")) {
+        if(confirm("您确认要删除编号为"+id+"的订单吗?")) {
 
             $.ajax({
                 type: "post",
-                url: "/admin/pro/"+id+"/del",
+                url: "/admin/order/"+id+"/del",
                 dataType: "json",
                 timeout: 200000,
                 data: {

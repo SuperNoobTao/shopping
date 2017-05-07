@@ -17,4 +17,6 @@ public interface OrderRepo extends JpaRepository<OrderEntity, Integer> {
 
     @Query("select o from OrderEntity o where o.userid=:userid")
     public List<OrderEntity> getOrderByU(@Param("userid") int id);
+
+
 }

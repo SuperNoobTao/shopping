@@ -62,7 +62,14 @@ public class ProductCtr {
 
 
 
+    // 搜索
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String search(ModelMap modelMap, String name){
+        List<ProductEntity> productEntityList = productRepo.findByProductnameLike("%"+name+"%");
 
+        modelMap.addAttribute("product", productEntityList);
+        return "searchresult";
+    }
 
 
 }

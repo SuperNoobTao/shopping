@@ -49,5 +49,17 @@ public class OrderService {
         productRepo.save(productEntity);
     }
 
+    @Transactional
+    public boolean del(int orderid) {
+        //删除数据库
+        orderRepo.delete(orderid);
+        //刷新
+        orderRepo.flush();
 
+        if (orderRepo.findOne(orderid) != null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
