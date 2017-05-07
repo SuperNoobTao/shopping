@@ -199,6 +199,7 @@
   <input  id="price"  type="text" placeholder="价格">
   </div>
  <button class="queren">确认</button>
+  <button class="cancel">取消</button>
 </section>
 
 
@@ -223,6 +224,12 @@
     event.preventDefault();
   }
 
+$('.cancel').click(function () {
+  $('.cuxiao').hide();
+})
+
+
+
 
   $('.queren').click(function () {
     var starttime=$('#starttime').val();
@@ -231,7 +238,7 @@
       console.log(starttime,endtime,price)
       $.ajax({
         type:'post',
-        url:'',     //自己加
+        url:'/admin/pro/promotion/add',
         dataType: "json",
         timeout: 200000,
         data: {
