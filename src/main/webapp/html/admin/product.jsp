@@ -220,6 +220,7 @@
 
 //促销
   function Funcuxiao(id) {
+    productid=id;
     $('.cuxiao').show();
     event.preventDefault();
   }
@@ -242,6 +243,7 @@ $('.cancel').click(function () {
         dataType: "json",
         timeout: 200000,
         data: {
+          productid:productid,
           starttime:starttime,
           endtime:endtime,
           price:price,
