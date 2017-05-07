@@ -2,12 +2,17 @@ package com.cenyol.example.controller.admin;
 
 import com.cenyol.example.model.OrderEntity;
 import com.cenyol.example.model.ProductEntity;
+import com.cenyol.example.model.PromotionEntity;
 import com.cenyol.example.repository.OrderRepo;
 import com.cenyol.example.repository.ProductRepo;
+import com.cenyol.example.repository.PromotionRepo;
 import com.cenyol.example.service.OrderService;
 import com.cenyol.example.service.ProductService;
+import com.cenyol.example.service.PromotionService;
 import com.cenyol.example.utils.StringUtil;
+import org.hibernate.loader.custom.Return;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
@@ -19,6 +24,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -36,6 +44,8 @@ public class AdminFontCtr {
     private OrderRepo orderRepo;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private PromotionService promotionService;
 
     // 商品列表
     @RequestMapping(value = "/admin/pro", method = RequestMethod.GET)
@@ -236,6 +246,35 @@ public class AdminFontCtr {
 
         return  hm;
 
+    }
+
+    @RequestMapping(value = "/cx/add", method = RequestMethod.POST)//得到接收的数据
+    @ResponseBody
+    public HashMap<String, String> cuxiao(
+            String productid,
+            Date starttime,
+            Date   endtime,
+             String price){
+
+//        Date starttime1 =AdminFontCtr.LocalDateTimeToUdate(starttime);
+//        Date endtime1 =AdminFontCtr.LocalDateTimeToUdate(endtime);
+
+        HashMap<String,String> map = new HashMap<String, String>();
+        PromotionEntity promotionEntity = new PromotionEntity(Integer.valueOf(productid),Double.valueOf(price),starttime,endtime);
+        if (promotionService.add(promotionEntity)!=null) {
+                map.put("state","00000");
+
+        }else
+            map.put("state","10001");
+        return map;
+}
+
+    public static Date LocalDateTimeToUdate(LocalDateTime localDateTime) {
+        localDateTime = LocalDateTime.now();
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDateTime.atZone(zone).toInstant();
+        Date date = Date.from(instant);
+        return  date;
     }
 
 }
