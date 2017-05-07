@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="165a2c19-a91b-43cc-a242-9954c5aa080f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cenyol/example/service/PromotionService.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_2_2_RELEASE.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_unknown.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_4_RELEASE.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo.iml" afterPath="$PROJECT_DIR$/demo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cenyol/example/controller/admin/AdminFontCtr.java" afterPath="$PROJECT_DIR$/src/main/java/com/cenyol/example/controller/admin/AdminFontCtr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cenyol/example/model/PromotionEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/cenyol/example/model/PromotionEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cenyol/example/repository/PromotionRepo.java" afterPath="$PROJECT_DIR$/src/main/java/com/cenyol/example/repository/PromotionRepo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/html/admin/product.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/html/admin/product.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,11 +42,12 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cenyol/example/controller/admin/AdminFontCtr.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="333">
-              <caret line="267" column="35" lean-forward="true" selection-start-line="267" selection-start-column="35" selection-end-line="267" selection-end-column="35" />
+              <caret line="267" column="35" lean-forward="false" selection-start-line="267" selection-start-column="35" selection-end-line="267" selection-end-column="35" />
               <folding>
-                <element signature="e#7261#7338#0" expanded="true" />
-                <element signature="e#7681#7744#0" expanded="true" />
-                <element signature="e#8125#8141#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2114#2115#0" expanded="false" />
+                <element signature="e#2155#2156#0" expanded="false" />
+                <element signature="e#5432#5507#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -72,7 +68,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
               <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
+            <state relative-caret-position="89">
               <caret line="114" column="17" lean-forward="false" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
               <folding />
             </state>
@@ -104,26 +102,38 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PromotionEntity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PromotionEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cenyol/example/model/PromotionEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="85" column="27" lean-forward="true" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+            <state relative-caret-position="223">
+              <caret line="85" column="27" lean-forward="false" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#896#902#0" expanded="true" />
-                <element signature="e#966#967#0" expanded="true" />
-                <element signature="e#998#999#0" expanded="true" />
-                <element signature="e#1046#1047#0" expanded="true" />
-                <element signature="e#1088#1089#0" expanded="true" />
-                <element signature="e#1095#1101#0" expanded="true" />
-                <element signature="e#1250#1251#0" expanded="true" />
-                <element signature="e#1294#1295#0" expanded="true" />
+                <element signature="e#131#138#0" expanded="false" />
+                <element signature="e#371#374#0" expanded="false" />
+                <element signature="e#423#424#0" expanded="false" />
+                <element signature="e#448#449#0" expanded="false" />
+                <element signature="e#481#482#0" expanded="false" />
+                <element signature="e#509#510#0" expanded="false" />
+                <element signature="e#516#522#0" expanded="false" />
+                <element signature="e#589#590#0" expanded="false" />
+                <element signature="e#621#622#0" expanded="false" />
+                <element signature="e#672#673#0" expanded="false" />
+                <element signature="e#714#715#0" expanded="false" />
+                <element signature="e#721#727#0" expanded="false" />
+                <element signature="e#785#786#0" expanded="false" />
+                <element signature="e#813#814#0" expanded="false" />
+                <element signature="e#855#856#0" expanded="false" />
+                <element signature="e#889#890#0" expanded="false" />
+                <element signature="e#1167#1168#0" expanded="false" />
+                <element signature="e#1200#1201#0" expanded="false" />
+                <marker date="1494153283177" expanded="true" signature="2488:2633" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -133,7 +143,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-601">
-              <caret line="65" column="34" lean-forward="true" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="34" />
+              <caret line="65" column="34" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -1023,7 +1033,7 @@
       <workItem from="1494129146395" duration="4665000" />
       <workItem from="1494133979059" duration="238000" />
       <workItem from="1494136931722" duration="3526000" />
-      <workItem from="1494149283683" duration="3303000" />
+      <workItem from="1494149283683" duration="3378000" />
     </task>
     <task id="LOCAL-00001" summary="entity">
       <created>1490794948508</created>
@@ -1081,11 +1091,25 @@
       <option name="project" value="LOCAL" />
       <updated>1494150954176</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="初步完成">
+      <created>1494153791439</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1494153791439</updated>
+    </task>
+    <task id="LOCAL-00010" summary="初步完成">
+      <created>1494153836427</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1494153836427</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127178000" />
+    <option name="totallyTimeSpent" value="127253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="558" y="0" width="1376" height="1034" extended-state="0" />
@@ -1698,14 +1722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="114" column="17" lean-forward="false" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cenyol/example/controller/admin/SellerCtr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1730,7 +1746,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1755,11 +1773,12 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cenyol/example/controller/admin/AdminFontCtr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
-          <caret line="267" column="35" lean-forward="true" selection-start-line="267" selection-start-column="35" selection-end-line="267" selection-end-column="35" />
+          <caret line="267" column="35" lean-forward="false" selection-start-line="267" selection-start-column="35" selection-end-line="267" selection-end-column="35" />
           <folding>
-            <element signature="e#7261#7338#0" expanded="true" />
-            <element signature="e#7681#7744#0" expanded="true" />
-            <element signature="e#8125#8141#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2114#2115#0" expanded="false" />
+            <element signature="e#2155#2156#0" expanded="false" />
+            <element signature="e#5432#5507#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1776,33 +1795,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-601">
-          <caret line="65" column="34" lean-forward="true" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="34" />
+          <caret line="65" column="34" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cenyol/example/model/PromotionEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="85" column="27" lean-forward="true" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
+        <state relative-caret-position="223">
+          <caret line="85" column="27" lean-forward="false" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#896#902#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1095#1101#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#131#138#0" expanded="false" />
+            <element signature="e#371#374#0" expanded="false" />
+            <element signature="e#423#424#0" expanded="false" />
+            <element signature="e#448#449#0" expanded="false" />
+            <element signature="e#481#482#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
+            <element signature="e#516#522#0" expanded="false" />
+            <element signature="e#589#590#0" expanded="false" />
+            <element signature="e#621#622#0" expanded="false" />
+            <element signature="e#672#673#0" expanded="false" />
+            <element signature="e#714#715#0" expanded="false" />
+            <element signature="e#721#727#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#813#814#0" expanded="false" />
+            <element signature="e#855#856#0" expanded="false" />
+            <element signature="e#889#890#0" expanded="false" />
+            <element signature="e#1167#1168#0" expanded="false" />
+            <element signature="e#1200#1201#0" expanded="false" />
+            <marker date="1494153283177" expanded="true" signature="2488:2633" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="114" column="17" lean-forward="false" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
