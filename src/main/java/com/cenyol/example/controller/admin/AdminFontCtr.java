@@ -38,15 +38,11 @@ public class AdminFontCtr {
         modelMap.addAttribute("proList", productList);//用于将controller方法里面的参数(proList)传递给所需的jsp页面，以进行相关显示
         return "admin/product";
     }
-
-
     // 商品添加
     @RequestMapping(value = "/admin/pro/add", method = RequestMethod.GET)
     public String proAdd(ModelMap modelMap) {
         return "admin/addproduct";
     }
-
-
     // 商品修改
     @RequestMapping(value = "/admin/pro/{id}", method = RequestMethod.GET)
     public String proUpdate(ModelMap modelMap, @PathVariable String id) {
@@ -54,8 +50,6 @@ public class AdminFontCtr {
         modelMap.addAttribute("pro", productEntity);
         return "admin/productdetail";
     }
-
-
     @RequestMapping(value = "/admin/pro/add", method = RequestMethod.POST)//得到接收的数据
     public ModelAndView proadd(
             String type,
