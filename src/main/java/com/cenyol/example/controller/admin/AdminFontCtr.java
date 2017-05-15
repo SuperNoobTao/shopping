@@ -24,14 +24,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+
 import java.util.*;
 
-/**
- * Created by shentao on 2017/3/30.
- */
+
 @Controller
 public class AdminFontCtr {
 
@@ -248,6 +244,25 @@ public class AdminFontCtr {
 
     }
 
+    @RequestMapping(value = "/admin/order/{id}/comfirm", method = RequestMethod.POST)
+    @ResponseBody
+    public HashMap<String, String> orderComfirm(
+            @PathVariable String id
+    ) {
+        HashMap hm = new HashMap();
+        try{
+
+            orderService.update(Integer.parseInt(id),2);
+            hm.put("state", "00000");
+        }catch (Exception e){
+            hm.put("state","10000");
+        }
+        return  hm;
+
+    }
+
+
+    //促销
     @RequestMapping(value = "/cx/add", method = RequestMethod.POST)//得到接收的数据
     @ResponseBody
     public HashMap<String, String> cuxiao(

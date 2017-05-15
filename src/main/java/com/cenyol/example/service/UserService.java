@@ -1,8 +1,5 @@
 package com.cenyol.example.service;
 
-/**
- * Created by Administrator on 2017/3/30.
- */
 
 import com.cenyol.example.model.UserEntity;
 import com.cenyol.example.repository.UserRepo;

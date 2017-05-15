@@ -4,9 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by shentao on 2017/3/29.
- */
+
 @Entity
 @javax.persistence.Table(name = "product", schema = "shopping", catalog = "")
 public class ProductEntity {

@@ -4,9 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by shentao on 2017/3/29.
- */
+
 @Entity
 @javax.persistence.Table(name = "order", schema = "shopping", catalog = "")
 public class OrderEntity {
@@ -117,6 +115,20 @@ public class OrderEntity {
     public void setOrdertel(String ordertel) {
         this.ordertel = ordertel;
     }
+
+    private int orderstate;
+    @Basic
+    @javax.persistence.Column(name = "orderstate")
+    public int getOrderstate() {
+        return orderstate;
+    }
+
+    public void setOrderstate(int orderstate) {
+        this.orderstate = orderstate;
+    }
+
+
+
 
     @Override
     public boolean equals(Object o) {

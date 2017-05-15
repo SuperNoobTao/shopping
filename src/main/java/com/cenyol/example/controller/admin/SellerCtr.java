@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
-/**
- * Created by shentao on 2017/3/29.
- */
-
 @Controller
 public class SellerCtr {
 
@@ -29,7 +25,7 @@ public class SellerCtr {
             httpSession.setAttribute("seller", sellerEntity);
             return "/admin/index";
         }
-        return "";
+        return "/admin/login";
     }
 
 

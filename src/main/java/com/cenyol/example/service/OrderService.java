@@ -15,9 +15,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**业务逻辑
- * Created by SuperNoobTao on 2017/4/3.
- */
 @Service
 public class OrderService {
 
@@ -61,5 +58,14 @@ public class OrderService {
         } else {
             return true;
         }
+    }
+
+
+    @Transactional
+    public void update(int orderid,int orderstate){
+
+        //更新数据库orderstate字段
+        orderRepo.updateOrder(orderstate,orderid);
+
     }
 }
