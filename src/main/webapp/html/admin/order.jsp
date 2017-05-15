@@ -228,12 +228,6 @@
                     }
 
 
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                  alert("网络异常");
-//                  alert("操作成功1");
-//                  window.location.href="/admin/order";
-
                 }
             });
 
@@ -259,11 +253,6 @@
             alert("操作失败");
           }
 
-
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          alert("操作成功");
-          location.reload(true);
 
         }
       });
