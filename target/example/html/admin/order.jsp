@@ -210,6 +210,7 @@
         if(confirm("您确认要删除编号为"+id+"的订单吗?")) {
 
             $.ajax({
+
                 type: "post",
                 url: "/admin/order/"+id+"/del",
                 dataType: "json",
@@ -228,12 +229,6 @@
                     }
 
 
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                  alert("网络异常");
-//                  alert("操作成功1");
-//                  window.location.href="/admin/order";
-
                 }
             });
 
@@ -242,33 +237,31 @@
 
 
     function reconfirm(id) {
-      $.ajax({
-        type: "post",
-        url: "/admin/order/"+id+"/comfirm",
-        dataType: "json",
-        data: {
-          id:id,
-        },
-        success: function (data) {
 
-          if (data.state == '00000') {
-            alert("操作成功");
-            location.reload(false);
-          }
-          else{
-            alert("操作失败");
-          }
+        if (confirm("您确认要确认编号为" + id + "的订单吗?")) {
+            $.ajax({
+
+                type: "post",
+                url: "/admin/order/" + id + "/comfirm",
+                dataType: "json",
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+
+                    if (data.state == '00000') {
+                        alert("操作成功");
+                        location.reload(false);
+                    }
+                    else {
+                        alert("操作失败");
+                    }
 
 
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          alert("操作成功");
-          location.reload(true);
-
+                }
+            });
         }
-      });
     }
-
 
 
 
