@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
-/**
- * Created by Administrator on 2017/4/1.
- */
+
 @Service
 public class ShoppingCartService {
 

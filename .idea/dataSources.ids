@@ -1,28 +1,248 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - test@localhost" uuid="c0cc93d0-8be0-4cfa-a804-adaee631058c">
-    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+  <data-source name="MySQL - shopping@112.74.42.19" uuid="478ff015-0aa9-4c48-ab1b-ed856238350b">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <schema name="" catalog="test"/>
-    <table name="blog" schema="" catalog="test" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="title" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
-      <column name="content" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="userid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="uid" columns="userid" ref-table="user" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="uid" unique="false" columns="userid"/>
-    </table>
-    <table name="user" schema="" catalog="test" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="firstName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="uid" table="blog" schema="" catalog="test" columns="userid"/>
-    </table>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="shopping">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="beauty_ssm"/>
+      <schema id="3" name="game"/>
+      <schema id="4" name="h2"/>
+      <schema id="5" name="information_schema"/>
+      <schema id="6" name="mysql"/>
+      <schema id="7" name="performance_schema"/>
+      <schema id="8" name="springdemo"/>
+      <schema id="9" name="test"/>
+      <table id="10" parent="1" name="content"/>
+      <table id="11" parent="1" name="flash"/>
+      <table id="12" parent="1" name="order"/>
+      <table id="13" parent="1" name="product"/>
+      <table id="14" parent="1" name="promotion"/>
+      <table id="15" parent="1" name="seller"/>
+      <table id="16" parent="1" name="shoppingcart"/>
+      <table id="17" parent="1" name="user"/>
+      <column id="18" parent="10" name="contentid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="19" parent="10" name="userid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="20" parent="10" name="productid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="21" parent="10" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="22" parent="10" name="contentmain">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="23" parent="10" name="PRIMARY">
+        <columns>contentid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="24" parent="11" name="flashid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="25" parent="11" name="productid">
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="26" parent="11" name="bigimgurl">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="27" parent="11" name="PRIMARY">
+        <columns>flashid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="28" parent="12" name="orderid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="29" parent="12" name="userid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="30" parent="12" name="productid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="31" parent="12" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="32" parent="12" name="productname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="33" parent="12" name="orderaddress">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="34" parent="12" name="orderprice">
+        <mandatory>1</mandatory>
+        <data-type>double(40)|0</data-type>
+      </column>
+      <column id="35" parent="12" name="ordernum">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="36" parent="12" name="ordertel">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <key id="37" parent="12" name="PRIMARY">
+        <columns>orderid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="38" parent="13" name="productid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="39" parent="13" name="producttype">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="40" parent="13" name="productname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="41" parent="13" name="price">
+        <mandatory>1</mandatory>
+        <data-type>double(20)|0</data-type>
+      </column>
+      <column id="42" parent="13" name="salenum">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="43" parent="13" name="imgurl">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="44" parent="13" name="description">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="45" parent="13" name="state">
+        <data-type>int(4)|0</data-type>
+      </column>
+      <key id="46" parent="13" name="PRIMARY">
+        <columns>productid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="47" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="48" parent="14" name="productid">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="49" parent="14" name="price">
+        <data-type>decimal(10,2)|0</data-type>
+      </column>
+      <column id="50" parent="14" name="startdate">
+        <data-type>datetime|0</data-type>
+      </column>
+      <column id="51" parent="14" name="finishdate">
+        <data-type>datetime|0</data-type>
+      </column>
+      <key id="52" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="53" parent="15" name="sellerid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="54" parent="15" name="myusername">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="55" parent="15" name="mypassword">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="56" parent="15" name="earning">
+        <data-type>double(20)|0</data-type>
+      </column>
+      <key id="57" parent="15" name="PRIMARY">
+        <columns>sellerid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="58" parent="16" name="shoppingcartid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="59" parent="16" name="userid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="60" parent="16" name="productid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+      </column>
+      <column id="61" parent="16" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="62" parent="16" name="productname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="63" parent="16" name="price">
+        <data-type>double(20)|0</data-type>
+      </column>
+      <column id="64" parent="16" name="imgurl">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="65" parent="16" name="PRIMARY">
+        <columns>shoppingcartid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="66" parent="17" name="userid">
+        <mandatory>1</mandatory>
+        <data-type>int(4)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="67" parent="17" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="68" parent="17" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="69" parent="17" name="address">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="70" parent="17" name="tel">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="71" parent="17" name="money">
+        <data-type>double(15)|0</data-type>
+      </column>
+      <column id="72" parent="17" name="email">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="73" parent="17" name="PRIMARY">
+        <columns>userid</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
   </data-source>
 </component>

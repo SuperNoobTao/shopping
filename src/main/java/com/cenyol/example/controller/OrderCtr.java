@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
-/**
- * Created by shentao on 2017/3/29.
- */
+
 @Controller
 public class OrderCtr {
 
@@ -72,6 +70,7 @@ public class OrderCtr {
         if (user.getMoney()<orderEntity.getOrderprice()) {
             map.put("code","false");
         }else {
+            orderEntity.setOrderstate(1);
             orderService.addOrder(orderEntity);
             map.put("code","true");
         }

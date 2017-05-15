@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by shentao on 2017/3/29.
- */
+
 @Repository // 添加注解
 public interface ShoppingCartRepo extends JpaRepository<ShoppingCartEntity, Integer> {
 

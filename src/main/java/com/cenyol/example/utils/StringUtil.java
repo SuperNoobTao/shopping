@@ -1,8 +1,5 @@
 package com.cenyol.example.utils;
 
-/**
- * Created by shentao on 2017/3/29.
- */
 public  class StringUtil {
 
     public static String Hot_sale = "1";

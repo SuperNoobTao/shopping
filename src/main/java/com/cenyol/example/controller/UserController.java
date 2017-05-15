@@ -21,9 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by sjj on 2015/10/24 0024.
- */
+
 @Controller
 public class UserController {
 
@@ -40,17 +38,17 @@ public class UserController {
     private ShoppingCartService shoppingCartService;
 
     // 用户管理
-//    @RequestMapping(value = "/users", method = RequestMethod.GET)
-//    public String users(ModelMap modelMap){
-//        // 找到user表里面的所有记录
-//        List<UserEntity> userEntityList = userRepository.findAll();
-//
-//        // 将所有的记录传递给返回的jsp页面
-//        modelMap.addAttribute("userList", userEntityList);
-//
-//        // 返回pages目录下的userManage.jsp
-//        return "userManage";
-//    }
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public String users(ModelMap modelMap){
+        // 找到user表里面的所有记录
+        List<UserEntity> userEntityList = userRepository.findAll();
+
+        // 将所有的记录传递给返回的jsp页面
+        modelMap.addAttribute("userList", userEntityList);
+
+        // 返回pages目录下的userManage.jsp
+        return "userManage";
+    }
 
     // 添加用户表单页面
     @RequestMapping(value = "/addUser", method = RequestMethod.GET)
@@ -71,24 +69,24 @@ public class UserController {
         return "redirect:/users";
     }
 
-    // 查看用户详细信息
-    // @PathVariable可以收集url中的变量，需匹配的变量用{}括起来
-    // 例如：访问 localhost:8080/showUser/1 ，将匹配 userId = 1
-//    @RequestMapping(value = "/showUser/{userId}", method = RequestMethod.GET)
-//    public String showUser( @PathVariable("userId") Integer userId, ModelMap modelMap ){
-//        UserEntity userEntity = userRepository.findOne(userId);
-//        modelMap.addAttribute("user", userEntity);
-//        return "userDetail";
-//    }
+//     查看用户详细信息
+//     @PathVariable可以收集url中的变量，需匹配的变量用{}括起来
+//     例如：访问 localhost:8080/showUser/1 ，将匹配 userId = 1
+    @RequestMapping(value = "/showUser/{userId}", method = RequestMethod.GET)
+    public String showUser( @PathVariable("userId") Integer userId, ModelMap modelMap ){
+        UserEntity userEntity = userRepository.findOne(userId);
+        modelMap.addAttribute("user", userEntity);
+        return "userDetail";
+    }
 
-//    // 更新用户信息页面
-//    @RequestMapping(value = "/updateUser/{userId}", method = RequestMethod.GET)
-//    public String updateUser(@PathVariable("userId") Integer userId, ModelMap modelMap){
-//        UserEntity userEntity = userRepository.findOne(userId);
-//        modelMap.addAttribute("user", userEntity);
-//        return "updateUser";
-//    }
-//    // 处理用户修改请求
+    // 更新用户信息页面
+    @RequestMapping(value = "/updateUser/{userId}", method = RequestMethod.GET)
+    public String updateUser(@PathVariable("userId") Integer userId, ModelMap modelMap){
+        UserEntity userEntity = userRepository.findOne(userId);
+        modelMap.addAttribute("user", userEntity);
+        return "updateUser";
+    }
+    // 处理用户修改请求
 //    @RequestMapping(value = "/updateUserPost", method = RequestMethod.POST)
 //    public String updateUserPost(@ModelAttribute("user") UserEntity userEntity){
 //        userRepository.updateUser(
@@ -126,17 +124,23 @@ public class UserController {
     }
 
     //用户登陆，登陆成功则刷新页面(未完成，应该把user对象放进session中)
-    @RequestMapping(value = "login" ,method = RequestMethod.POST)
-    public String login(String username,String password,HttpSession httpSession){
-
+    @RequestMapping(value = "/login" ,method = RequestMethod.POST)
+    @ResponseBody
+    public  HashMap<String, String> login(String username,String password,HttpSession httpSession){
+        HashMap<String,String> map = new HashMap<String, String>();
         UserEntity user = userService.login(username,password);
         if (user!=null) {
-
+            map.put("code","true");
             httpSession.setAttribute("user", user);
-            return "redirect:/";
+
         }
-return "";
+        else{
+            map.put("code","false");
+        }
+        return map;
     }
+
+
 
 
 

@@ -5,9 +5,7 @@ import com.cenyol.example.repository.SellerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Created by shentao on 2017/3/30.
- */
+
 @Service
 public class SellerService {
 

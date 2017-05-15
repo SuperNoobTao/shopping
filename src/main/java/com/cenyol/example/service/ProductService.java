@@ -12,9 +12,7 @@ import sun.font.TrueTypeFont;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/4/1.
- */
+
 @Service
 public class ProductService {
 

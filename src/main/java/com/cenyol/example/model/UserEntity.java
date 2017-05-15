@@ -3,9 +3,7 @@ package com.cenyol.example.model;
 import javax.persistence.*;
 import java.util.Collection;
 
-/**
- * Created by sjj on 2015/10/24 0024.
- */
+
 @Entity
 @Table(name = "user")
 public class UserEntity {

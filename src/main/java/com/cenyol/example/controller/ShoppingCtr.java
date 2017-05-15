@@ -17,9 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by shentao on 2017/3/29.
- */
+
 @Controller
 public class ShoppingCtr {
 

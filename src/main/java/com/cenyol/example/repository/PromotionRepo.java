@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by shentao on 2017/4/9.
- */
+
 @Repository
 public interface PromotionRepo extends JpaRepository<PromotionEntity, Integer> {
 

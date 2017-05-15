@@ -2,9 +2,7 @@ package com.cenyol.example.model;
 
 import javax.persistence.*;
 
-/**
- * Created by shentao on 2017/3/29.
- */
+
 @Entity
 @Table(name = "shoppingcart")
 public class ShoppingCartEntity {
